@@ -2,9 +2,9 @@
 
 namespace ErpNET\Saas\v1\Repositories;
 
-use App\Spark;
-use App\Teams\Team;
-use App\Contracts\Repositories\TeamRepository as Contract;
+use ErpNET\Saas\v1\Services\ErpnetSparkService;
+use ErpNET\Saas\v1\Entities\Teams\Team;
+use ErpNET\Saas\v1\Contracts\Repositories\TeamRepository as Contract;
 
 class TeamRepository implements Contract
 {
@@ -13,11 +13,11 @@ class TeamRepository implements Contract
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @param  array  $data
-     * @return \App\Teams\Team
+     * @return Team
      */
     public function create($user, array $data)
     {
-        $class = Spark::model('teams', Team::class);
+        $class = ErpnetSparkService::model('teams', Team::class);
 
         $team = new $class(['name' => $data['name']]);
 
