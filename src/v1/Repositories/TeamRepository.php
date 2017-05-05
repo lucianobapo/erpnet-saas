@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace ErpNET\Saas\v1\Repositories;
 
 use App\Spark;
 use App\Teams\Team;

@@ -53,6 +53,15 @@ class ErpnetSaasServiceProvider extends ServiceProvider
 //        ], 'config');
 
         //Bind Interfaces
+        $bind = [
+            \ErpNET\Saas\v1\Contracts\Repositories\UserRepository::class=>\ErpNET\Saas\v1\Repositories\UserRepository::class,
+            \ErpNET\Saas\v1\Contracts\Repositories\TeamRepository::class=>\ErpNET\Saas\v1\Repositories\TeamRepository::class,
+        ];
+
+        foreach ($bind as $interface=>$repository)
+            if(interface_exists($interface)  && class_exists($repository))
+                $app->bind($interface, $repository);
+
 //        $app->bind($bindInterface, $bindRepository);
 //        foreach (config('erpnetMigrates.tables') as $table => $config) {
 //            $routePrefix = isset($config['routePrefix'])?$config['routePrefix']:str_singular($table);
