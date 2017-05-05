@@ -11,46 +11,11 @@
   "require": {
     "php": "^5.5.9 || ^7.0",
     "dingo/api": "1.0.*@dev",
-    "ilhanet/erpnet-models": "dev-master"
+    "laravel/cashier": "^7.0",
+    "erusev/parsedown": "^1.6",
+    "guzzlehttp/guzzle": "^6.2",
+    "dompdf/dompdf": "^0.8.0"
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/lucianobapo/erpnet-auth.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/lucianobapo/erpnet-bot.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/lucianobapo/erpnet-delivery.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/lucianobapo/erpnet-file-manager.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/lucianobapo/erpnet-helper.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/lucianobapo/erpnet-migrates.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/lucianobapo/erpnet-models.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/lucianobapo/erpnet-social-auth.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/lucianobapo/erpnet-widget-resource.git"
-    }
-  ],
   "require-dev": {
   },
   "autoload": {

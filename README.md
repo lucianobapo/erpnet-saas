@@ -1,5 +1,7 @@
 # erpnet-saas
 
+cd ~/code/erpnet-saas/ && git cmt && cd ~/code/erpnet-spark/ && composer update
+
 [Site do GitHub](https://github.com/lucianobapo/erpnet-saas)
 
 [![Latest Stable Version](https://poser.pugx.org/ilhanet/erpnet-saas/v/stable)](https://packagist.org/packages/ilhanet/erpnet-saas) 
