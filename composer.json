@@ -10,7 +10,7 @@
   ],
   "require": {
     "php": "^5.5.9 || ^7.0",
-    "dingo/api": "1.0.*@dev",
+    "dingo/api": "dev-master",
     "laravel/cashier": "^7.0",
     "erusev/parsedown": "^1.6",
     "guzzlehttp/guzzle": "^6.2",
@@ -18,6 +18,13 @@
   },
   "require-dev": {
   },
+
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/dingo/api.git"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "ErpNET\\Saas\\": "src/"
