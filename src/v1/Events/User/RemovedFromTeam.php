@@ -1,8 +1,8 @@
 <?php
 
-namespace ErpNET\Auth\v1\Events\User;
+namespace ErpNET\Saas\v1\Events\User;
 
-use ErpNET\Auth\v1\Entities\Teams\Team;
+use ErpNET\Saas\v1\Entities\Teams\Team;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Auth\Authenticatable;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace ErpNET\Auth\v1\Entities\Teams;
+namespace ErpNET\Saas\v1\Entities\Teams;
 
 use ErpNET\Saas\v1\Services\ErpnetSparkService;
 use Carbon\Carbon;

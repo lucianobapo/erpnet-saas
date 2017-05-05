@@ -1,10 +1,10 @@
 <?php
 
-namespace ErpNET\Auth\v1\Entities\Teams;
+namespace ErpNET\Saas\v1\Entities\Teams;
 
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Database\Eloquent\Model;
-use ErpNET\Auth\v1\Events\User\RemovedFromTeam;
+use ErpNET\Saas\v1\Events\User\RemovedFromTeam;
 
 class Team extends Model
 {

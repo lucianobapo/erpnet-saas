@@ -1,6 +1,6 @@
 <?php
 
-namespace ErpNET\Auth\v1\Entities\Subscriptions;
+namespace ErpNET\Saas\v1\Entities\Subscriptions;
 
 use Countable;
 use Exception;
