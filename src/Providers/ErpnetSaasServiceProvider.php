@@ -110,7 +110,7 @@ class ErpnetSaasServiceProvider extends ServiceProvider
      */
     public function register()
     {
-//        $this->app->register(\Dingo\Api\Provider\LaravelServiceProvider::class);
+        $this->app->register(\Dingo\Api\Provider\LaravelServiceProvider::class);
     }
 
     /**

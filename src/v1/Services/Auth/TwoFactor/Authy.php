@@ -48,7 +48,7 @@ class Authy implements Provider
     /**
      * Determine if the given token is valid for the given user.
      *
-     * @param  \TwoFactorAuthenticatable  $user
+     * @param  TwoFactorAuthenticatable  $user
      * @param  string  $token
      * @return bool
      */

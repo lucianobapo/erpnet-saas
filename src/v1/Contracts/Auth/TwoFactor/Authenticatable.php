@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Contracts\Auth\TwoFactor;
+namespace ErpNET\Saas\v1\Contracts\Auth\TwoFactor;
 
 use Illuminate\Contracts\Auth\Authenticatable as BaseAuthenticatable;
 

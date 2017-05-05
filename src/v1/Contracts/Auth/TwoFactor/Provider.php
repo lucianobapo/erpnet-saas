@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Contracts\Auth\TwoFactor;
+namespace ErpNET\Saas\v1\Contracts\Auth\TwoFactor;
 
-use App\Contracts\Auth\TwoFactor\Authenticatable as TwoFactorAuthenticatable;
+use ErpNET\Saas\v1\Contracts\Auth\TwoFactor\Authenticatable as TwoFactorAuthenticatable;
 
 interface Provider
 {
     /**
      * Determine if the given user has two-factor authentication enabled.
      *
-     * @param  \App\Contracts\Auth\TwoFactor\Authenticatable  $user
+     * @param  TwoFactorAuthenticatable  $user
      * @return bool
      */
     public function isEnabled(TwoFactorAuthenticatable $user);
@@ -17,7 +17,7 @@ interface Provider
     /**
      * Register the given user with the provider.
      *
-     * @param  \App\Contracts\Auth\TwoFactor\Authenticatable  $user
+     * @param  TwoFactorAuthenticatable  $user
      * @return void
      */
     public function register(TwoFactorAuthenticatable $user);
@@ -25,7 +25,7 @@ interface Provider
     /**
      * Determine if the given token is valid for the given user.
      *
-     * @param  \App\Contracts\Auth\TwoFactor\Authenticatable  $user
+     * @param  TwoFactorAuthenticatable  $user
      * @param  string  $token
      * @return bool
      */
@@ -34,7 +34,7 @@ interface Provider
     /**
      * Delete the given user from the provider.
      *
-     * @param  \App\Contracts\Auth\TwoFactor\Authenticatable  $user
+     * @param  TwoFactorAuthenticatable  $user
      * @return bool
      */
     public function delete(TwoFactorAuthenticatable $user);
