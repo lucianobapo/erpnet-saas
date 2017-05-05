@@ -2,7 +2,7 @@
 
 namespace ErpNET\Saas\v1\Services;
 
-use ErpNET\Auth\v1\Entities\Subscriptions\Plan;
+use ErpNET\Saas\v1\Entities\Subscriptions\Plan;
 use ErpNET\Saas\v1\Services\Ux\Settings\Tabs;
 use Illuminate\Support\Facades\Auth;
 use ErpNET\Saas\v1\Entities\Teams\CanJoinTeams;

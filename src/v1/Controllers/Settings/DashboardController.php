@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
-use ErpNET\Auth\v1\Repositories\UserRepository;
+use ErpNET\Saas\v1\Repositories\UserRepository;
 
 class DashboardController extends Controller
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace ErpNET\Auth\v1\Repositories;
+namespace ErpNET\Saas\v1\Repositories;
 
 use ErpNET\Saas\v1\Services\ErpnetSparkService;
 use Illuminate\Http\Request;

@@ -2,7 +2,7 @@
 
 namespace ErpNET\Saas\Providers;
 
-use ErpNET\Auth\v1\Entities\Teams\Team;
+use ErpNET\Saas\v1\Entities\Teams\Team;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use ErpNET\Saas\v1\Services\ErpnetSparkService;
