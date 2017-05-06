@@ -10,7 +10,7 @@
   ],
   "require": {
     "php": "^5.5.9 || ^7.0",
-    "dingo/api": "^1.0",
+    "dingo/api": "^1.1",
     "laravel/cashier": "^7.0",
     "erusev/parsedown": "^1.6",
     "guzzlehttp/guzzle": "^6.2",
