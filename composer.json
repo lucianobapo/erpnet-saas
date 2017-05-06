@@ -10,7 +10,7 @@
   ],
   "require": {
     "php": "^5.5.9 || ^7.0",
-    "dingo/api": "dev-master",
+    "dingo/api": "^1.0",
     "laravel/cashier": "^7.0",
     "erusev/parsedown": "^1.6",
     "guzzlehttp/guzzle": "^6.2",
@@ -22,7 +22,7 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/dingo/api.git"
+      "url": "https://github.com/lucianobapo/api.git"
     }
   ],
   "autoload": {
