@@ -3,6 +3,7 @@
 namespace ErpNET\Saas\Providers;
 
 use ErpNET\Saas\v1\Entities\Teams\Team;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use ErpNET\Saas\v1\Services\ErpnetSparkService;
@@ -43,11 +44,14 @@ class ErpnetSaasServiceProvider extends ServiceProvider
 
         $projectRootDir = __DIR__.DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR;
         $routesDir = $projectRootDir."routes".DIRECTORY_SEPARATOR;
+        $configPath = $projectRootDir . "config".DIRECTORY_SEPARATOR."erpnetSaas.php";
+        $viewsPath = $projectRootDir . "resources".DIRECTORY_SEPARATOR."views";
 
-        $configPath = $projectRootDir . 'config/erpnetSaas.php';
         $this->mergeConfigFrom($configPath, 'erpnetSaas');
 
-        $this->loadViewsFrom($projectRootDir.'resources/views', 'erpnetSaas');
+        $this->loadViewsFrom($viewsPath, 'erpnetSaas');
+
+        AliasLoader::getInstance()->alias("Spark", \ErpNET\Saas\v1\Services\ErpnetSparkService::class);
 
 //        $this->publishes([
 //            $projectRootDir.'node_modules/font-awesome/fonts' => public_path('fonts'),
@@ -59,12 +63,12 @@ class ErpnetSaasServiceProvider extends ServiceProvider
 
         //Publish resources
         $this->publishes([
-            $projectRootDir.'resources/views' => resource_path('views/vendor/erpnetSaas'),
+            $viewsPath => resource_path('views/vendor/erpnetSaas'),
         ], 'viewsSaas');
 
         //Publish Config
         $this->publishes([
-            $projectRootDir.'config/erpnetSaas.php' => config_path('erpnetSaas.php')
+            $configPath => config_path('erpnetSaas.php')
         ], 'configSaas');
 
         //Bind Interfaces
