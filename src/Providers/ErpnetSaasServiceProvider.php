@@ -47,6 +47,21 @@ class ErpnetSaasServiceProvider extends ServiceProvider
         $configPath = $projectRootDir . 'config/erpnetSaas.php';
         $this->mergeConfigFrom($configPath, 'erpnetSaas');
 
+        $this->loadViewsFrom($projectRootDir.'resources/views', 'erpnetSaas');
+
+//        $this->publishes([
+//            $projectRootDir.'node_modules/font-awesome/fonts' => public_path('fonts'),
+//        ], 'erpnetWidgetResourceFonts');
+//        $this->publishes([
+//            $projectRootDir.'resources/assets' => resource_path('assets/vendor/erpnetWidgetResource'),
+//            $projectRootDir.'gulpfileErpnetWidgetResource.js' => base_path('gulpfileErpnetWidgetResource.js'),
+//        ], 'erpnetWidgetResourceGulpfile');
+
+        //Publish resources
+        $this->publishes([
+            $projectRootDir.'resources/views' => resource_path('views/vendor/erpnetSaas'),
+        ], 'viewsSaas');
+
         //Publish Config
         $this->publishes([
             $projectRootDir.'config/erpnetSaas.php' => config_path('erpnetSaas.php')

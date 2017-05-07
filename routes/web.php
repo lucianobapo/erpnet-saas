@@ -14,9 +14,9 @@
 use Illuminate\Routing\Router;
 use ErpNET\Saas\v1\Services\ErpnetSparkService;
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+    return view('erpnetSaas::welcome');
+});
 
 //Route::resource('partners', '\ErpNET\Models\Controllers\PartnersController');
 
