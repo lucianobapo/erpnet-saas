@@ -54,7 +54,6 @@ class ErpnetSaasServiceProvider extends ServiceProvider
 
         //Bind Interfaces
         $bind = config('erpnetSaas.bindInterfaces');
-        dd($bind);
 
         foreach ($bind as $interface=>$repository)
             if(interface_exists($interface)  && class_exists($repository))
