@@ -44,19 +44,17 @@ class ErpnetSaasServiceProvider extends ServiceProvider
         $projectRootDir = __DIR__.DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR;
         $routesDir = $projectRootDir."routes".DIRECTORY_SEPARATOR;
 
-//        $configPath = $projectRootDir . 'config/erpnetModels.php';
-//        $this->mergeConfigFrom($configPath, 'erpnetModels');
+        $configPath = $projectRootDir . 'config/erpnetSaas.php';
+        $this->mergeConfigFrom($configPath, 'erpnetSaas');
 
         //Publish Config
-//        $this->publishes([
-//            $projectRootDir.'config/erpnetModels.php' => config_path('erpnetModels.php')
-//        ], 'config');
+        $this->publishes([
+            $projectRootDir.'config/erpnetSaas.php' => config_path('erpnetSaas.php')
+        ], 'configSaas');
 
         //Bind Interfaces
-        $bind = [
-            \ErpNET\Saas\v1\Contracts\Repositories\UserRepository::class=>\ErpNET\Saas\v1\Repositories\UserRepository::class,
-            \ErpNET\Saas\v1\Contracts\Repositories\TeamRepository::class=>\ErpNET\Saas\v1\Repositories\TeamRepository::class,
-        ];
+        $bind = config('erpnetSaas.bindInterfaces');
+        dd($bind);
 
         foreach ($bind as $interface=>$repository)
             if(interface_exists($interface)  && class_exists($repository))
