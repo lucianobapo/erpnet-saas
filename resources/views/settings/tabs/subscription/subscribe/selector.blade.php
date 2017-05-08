@@ -13,7 +13,7 @@
 
         <div v-for="plan in defaultPlans" style="margin-bottom: 10px;">
             <div v-if="plan.price > 0" style="margin-bottom: 10px;">
-                @include('settings.tabs.subscription.subscribe.plan')
+                @include('erpnetSaas::settings.tabs.subscription.subscribe.plan')
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@
         </div>
 
         <div v-for="plan in yearlyPlans" style="margin-bottom: 10px;">
-            @include('settings.tabs.subscription.subscribe.plan')
+            @include('erpnetSaas::settings.tabs.subscription.subscribe.plan')
         </div>
     </div>
 </div>

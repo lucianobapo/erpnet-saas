@@ -3,7 +3,7 @@
     <div class="panel-heading">Subscribe</div>
 
     <div class="panel-body">
-        @include('settings.tabs.subscription.subscribe.selector')
+        @include('erpnetSaas::settings.tabs.subscription.subscribe.selector')
     </div>
 </div>
 

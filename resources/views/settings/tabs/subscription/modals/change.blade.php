@@ -24,7 +24,7 @@
                         </div>
 
                         <div v-for="plan in defaultPlansExceptCurrent" style="margin-bottom: 10px;">
-                            @include('settings.tabs.subscription.modals.change.plan')
+                            @include('erpnetSaas::settings.tabs.subscription.modals.change.plan')
                         </div>
                     </div>
 
@@ -35,7 +35,7 @@
                         </div>
 
                         <div v-for="plan in yearlyPlansExceptCurrent" style="margin-bottom: 10px;">
-                            @include('settings.tabs.subscription.modals.change.plan')
+                            @include('erpnetSaas::settings.tabs.subscription.modals.change.plan')
                         </div>
                     </div>
                 </div>

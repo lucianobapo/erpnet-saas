@@ -130,6 +130,6 @@
     </div>
 
     <!-- Edit Team Member Modal -->
-    @include('settings.team.tabs.membership.modals.edit-team-member')
+    @include('erpnetSaas::settings.team.tabs.membership.modals.edit-team-member')
 
 </spark-team-settings-membership-screen>

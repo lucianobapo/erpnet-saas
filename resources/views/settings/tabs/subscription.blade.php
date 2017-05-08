@@ -3,35 +3,35 @@
         <div v-if="userIsLoaded && plansAreLoaded">
 
             <!-- Current Coupon -->
-            @include('settings.tabs.subscription.coupon')
+            @include('erpnetSaas::settings.tabs.subscription.coupon')
 
                     <!-- Subscribe -->
-            @include('settings.tabs.subscription.subscribe')
+            @include('erpnetSaas::settings.tabs.subscription.subscribe')
 
                     <!-- Update Subscription -->
-            @include('settings.tabs.subscription.change')
+            @include('erpnetSaas::settings.tabs.subscription.change')
 
                     <!-- Update Credit Card -->
-            @include('settings.tabs.subscription.card')
+            @include('erpnetSaas::settings.tabs.subscription.card')
 
                     <!-- Resume Subscription -->
-            @include('settings.tabs.subscription.resume')
+            @include('erpnetSaas::settings.tabs.subscription.resume')
 
                     <!-- Invoices -->
             @if (count($invoices) > 0)
-            @include('settings.tabs.subscription.invoices.vat')
+            @include('erpnetSaas::settings.tabs.subscription.invoices.vat')
 
-            @include('settings.tabs.subscription.invoices.history')
+            @include('erpnetSaas::settings.tabs.subscription.invoices.history')
             @endif
 
                     <!-- Cancel Subscription -->
-            @include('settings.tabs.subscription.cancel')
+            @include('erpnetSaas::settings.tabs.subscription.cancel')
         </div>
 
         <!-- Change Subscription Modal -->
-        @include('settings.tabs.subscription.modals.change')
+        @include('erpnetSaas::settings.tabs.subscription.modals.change')
 
                 <!-- Cancel Subscription Modal -->
-        @include('settings.tabs.subscription.modals.cancel')
+        @include('erpnetSaas::settings.tabs.subscription.modals.cancel')
     </div>
 </spark-settings-subscription-screen>
