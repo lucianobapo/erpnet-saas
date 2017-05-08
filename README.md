@@ -2,7 +2,8 @@
 
 cd ~/code/erpnet-saas/ && git cmt && cd ~/code/erpnet-spark/ && composer update
 
-npm install vue-resource underscore promise moment laravel-elixir --save-dev
+npm install gulp vue-resource underscore promise moment laravel-elixir --save-dev
+php artisan vendor:publish --tag=assetsSaas
 
 [Site do GitHub](https://github.com/lucianobapo/erpnet-saas)
 
