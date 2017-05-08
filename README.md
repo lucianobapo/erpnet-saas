@@ -2,6 +2,7 @@
 
 ## Start using
 ```shell
+php artisan vendor:publish --provider=ErpNET\Permissions\Providers\ErpnetPermissionsServiceProvider --force
 php artisan vendor:publish --tag=erpnetPermissions --force
 php artisan vendor:publish --tag=publicSaas --force
 ```
