@@ -18,6 +18,10 @@ Route::get('/', ['as'=>'welcome', 'uses'=>function () {
     return view('erpnetSaas::welcome');
 }]);
 
+Route::get('/phpinfo', ['as'=>'phpinfo', 'uses'=>function () {
+    return phpinfo();
+}]);
+
 //Route::resource('partners', '\ErpNET\Models\Controllers\PartnersController');
 
 $routeConfig = [
