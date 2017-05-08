@@ -18,7 +18,7 @@
 {{--</footer>--}}
 
 <!-- Footer -->
-<footer class="row">
+<footer class="row footer">
     <!-- Company Information -->
     <div class="col-md-10 col-md-offset-1 splash-footer">
         <div class="pull-left splash-footer-company">

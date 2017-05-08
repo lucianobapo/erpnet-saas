@@ -1,12 +1,11 @@
 @extends('erpnetSaas::layouts.app')
 
-<!-- Scripts -->
-@section('scripts')
+@section('scripts')<!-- Scripts -->
     <script src="https://js.stripe.com/v2/"></script>
 @append
 
-<!-- Main Content -->
-@section('content')
+@section('content')<!-- Main Content -->
+
 <!-- Your Settings Dashboard -->
 <spark-settings-screen inline-template>
     <div id="spark-settings-screen" class="container spark-screen">
