@@ -4,7 +4,7 @@
 
     <!-- Main Content -->
     <div class="container spark-splash-screen">
-
+        @include('erpnetSaas::nav.splash')
 
         <!-- Inspiration -->
         <div class="row splash-inspiration-row">

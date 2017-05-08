@@ -32,11 +32,12 @@
 <!-- Vue App For Spark Screens -->
 <div id="spark-app" v-cloak>
     <!-- Navigation -->
-    {{ dd(Route::currentRouteName()) }}
-    @if (Auth::check())
-        @include('erpnetSaas::nav.authenticated')
-    @else
-        @include('erpnetSaas::nav.guest')
+    @if (Route::currentRouteName()!=='welcome')
+        @if (Auth::check())
+            @include('erpnetSaas::nav.authenticated')
+        @else
+            @include('erpnetSaas::nav.guest')
+        @endif
     @endif
 
     <!-- Main Content -->
