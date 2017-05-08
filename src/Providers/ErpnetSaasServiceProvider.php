@@ -287,6 +287,7 @@ class ErpnetSaasServiceProvider extends ServiceProvider
                 $tabs->employee(),
                 $tabs->internalCourse(),
                 $tabs->externalCourse(),
+                $tabs->supplier(),
                 // $tabs->make('Name', 'view', 'fa-icon'),
             ];
         });

@@ -34,6 +34,15 @@ class DataTabs extends Tabs
     {
         return new Tab(t('External Course'), 'data.tabs.externalCourse', 'fa-user');
     }
+    /**
+     * Get the tab configuration.
+     *
+     * @return Tab
+     */
+    public function supplier()
+    {
+        return new Tab(t('Supplier'), 'data.tabs.supplier', 'fa-user');
+    }
 
     /**
      * Get the tab configuration for the "teams" tab.
