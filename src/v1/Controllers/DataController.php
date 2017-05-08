@@ -11,7 +11,8 @@ class DataController extends Controller
     public function index()
     {
         $tabs = ErpnetSparkService::dataTabs()->displayable();
+        $activeTab = 'employee';
 
-        return view('erpnetSaas::data.home', compact('tabs'));
+        return view('erpnetSaas::data.home', compact('tabs','activeTab'));
     }
 }
