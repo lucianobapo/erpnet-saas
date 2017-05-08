@@ -32,7 +32,7 @@
             <!-- Tab Panes -->
             <div class="col-md-8">
                 <div class="tab-content">
-                    @foreach (isset($tabsContent)?$tabsContent:[] as $tab)
+                    @foreach (isset($tabs)?$tabs:[] as $tab)
                         <div role="tabpanel" class="tab-pane{{ $tab->key == $activeTab ? ' active' : '' }}" id="{{ $tab->key }}">
                             @include('erpnetSaas::'.$tab->view)
                         </div>
