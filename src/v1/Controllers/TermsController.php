@@ -13,7 +13,12 @@ class TermsController extends Controller
      */
     public function show()
     {
-        $terms = (new Parsedown)->text(file_get_contents(resource_path('views/vendor/erpnetSaas/terms.md')));
+        $file = base_path('terms.md');
+        $content = "Arquivo `".$file."` não foi encontrado. Sem conteúdo para mostrar.";
+        if (file_exists($file))
+            $content = file_get_contents($file);
+
+        $terms = (new Parsedown)->text($content);
 
         return view('erpnetSaas::terms', compact('terms'));
     }

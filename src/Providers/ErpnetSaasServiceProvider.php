@@ -88,6 +88,11 @@ class ErpnetSaasServiceProvider extends ServiceProvider
             $viewsPath => resource_path('views/vendor/erpnetSaas'),
         ], 'viewsSaas');
 
+        //Publish Terms
+        $this->publishes([
+            $projectRootDir.'terms.md' => base_path('terms.md')
+        ], 'termsSaas');
+
         //Publish Config
         $this->publishes([
             $configPath => config_path('erpnetSaas.php')
