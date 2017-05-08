@@ -20,14 +20,15 @@
         <div class="collapse navbar-collapse" id="spark-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
+                <li><a href="/">{{ t('Home') }}</a></li>
+                <li><a href="/data">{{ t('Data') }}</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Login / Registration Links -->
-                <li><a href="/login">Login</a></li>
-                <li><a href="/register">Register</a></li>
+                <li><a href="/login">{{ t('Login') }}</a></li>
+                <li><a href="/register">{{ t('Register') }}</a></li>
             </ul>
         </div>
     </div>

@@ -43,6 +43,9 @@ $router->group($routeConfig, function(Router $router) {
     // Settings Dashboard Routes...
     $router->get('settings', 'Settings\DashboardController@show');
 
+    //Data routes
+    $router->get('data', 'DataController@index');
+
     // Profile Routes...
     $router->put('settings/user', 'Settings\ProfileController@updateUserProfile');
 

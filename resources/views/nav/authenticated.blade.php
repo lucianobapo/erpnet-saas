@@ -20,7 +20,8 @@
         <div class="collapse navbar-collapse" id="spark-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="/home">Home</a></li>
+                <li><a href="/home">{{ t('Home') }}</a></li>
+                <li><a href="/data">{{ t('Data') }}</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

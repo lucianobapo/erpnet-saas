@@ -148,6 +148,10 @@ class ErpnetSaasServiceProvider extends ServiceProvider
             $this->customizeSettingsTabs();
         }
 
+        if (method_exists($this, 'customizeDataTabs')) {
+            $this->customizeDataTabs();
+        }
+
         if ($this->twoFactorAuth) {
             ErpnetSparkService::withTwoFactorAuth();
         }
@@ -266,6 +270,22 @@ class ErpnetSaasServiceProvider extends ServiceProvider
                 // $tabs->make('Name', 'view', 'fa-icon'),
             ];
         });
+    }
+
+    /**
+     * Customize the tabs on the Data screen.
+     *
+     * @return void
+     */
+    protected function customizeDataTabs()
+    {
+        ErpnetSparkService::dataTabs()->configure(function ($tabs) {
+            return [
+                $tabs->employee(),
+                // $tabs->make('Name', 'view', 'fa-icon'),
+            ];
+        });
+
     }
 
     /**
