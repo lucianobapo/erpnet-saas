@@ -13,6 +13,7 @@
  |
  */
 
-require('./core/bootstrap');
+// require('./core/bootstrap');
+require('../../../../../node_modules/bootstrap-sass/assets/javascripts/bootstrap');
 
 new Vue(require('./spark'));
