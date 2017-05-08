@@ -46,6 +46,7 @@ class ErpnetSaasServiceProvider extends ServiceProvider
         $routesDir = $projectRootDir."routes".DIRECTORY_SEPARATOR;
         $configPath = $projectRootDir . "config".DIRECTORY_SEPARATOR."erpnetSaas.php";
         $viewsPath = $projectRootDir . "resources".DIRECTORY_SEPARATOR."views";
+        $assetsPath = $projectRootDir . "resources".DIRECTORY_SEPARATOR."assets";
 
         $this->mergeConfigFrom($configPath, 'erpnetSaas');
 
@@ -56,10 +57,11 @@ class ErpnetSaasServiceProvider extends ServiceProvider
 //        $this->publishes([
 //            $projectRootDir.'node_modules/font-awesome/fonts' => public_path('fonts'),
 //        ], 'erpnetWidgetResourceFonts');
-//        $this->publishes([
-//            $projectRootDir.'resources/assets' => resource_path('assets/vendor/erpnetWidgetResource'),
-//            $projectRootDir.'gulpfileErpnetWidgetResource.js' => base_path('gulpfileErpnetWidgetResource.js'),
-//        ], 'erpnetWidgetResourceGulpfile');
+
+        $this->publishes([
+            $assetsPath => resource_path('assets/vendor/erpnetSaas'),
+            $projectRootDir.'gulpfile.js' => base_path('gulpfileErpnetSaas.js'),
+        ], 'assetsSaas');
 
         //Publish resources
         $this->publishes([
