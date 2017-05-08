@@ -2,7 +2,9 @@
     <!-- Company Information -->
     <div class="col-md-10 col-md-offset-1 splash-footer">
         <div class="pull-left splash-footer-company">
-            Copyright © {{ Spark::company() }} - <a href="/terms">Terms Of Service</a>
+            Copyright © {{ Spark::company() }}
+            - <a href="/terms">Terms Of Service</a>
+            - <a href="/privacy">Privacy Policy</a>
         </div>
 
         <!-- Social Icons -->
