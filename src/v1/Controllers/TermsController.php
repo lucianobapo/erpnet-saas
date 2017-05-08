@@ -13,8 +13,8 @@ class TermsController extends Controller
      */
     public function show()
     {
-        $terms = (new Parsedown)->text(file_get_contents(resource_path('views/terms.md')));
+        $terms = (new Parsedown)->text(file_get_contents(resource_path('views/vendor/erpnetSaas/terms.md')));
 
-        return view('terms', compact('terms'));
+        return view('erpnetSaas::terms', compact('terms'));
     }
 }

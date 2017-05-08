@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('erpnetSaas::layouts.app')
 
 <!-- Main Content -->
 @section('content')
