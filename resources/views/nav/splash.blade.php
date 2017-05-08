@@ -19,10 +19,10 @@
                 <li class="splash-nav-link active"><a href="/features">{{ t('Features') }}</a></li>
                 <li class="splash-nav-link"><a href="/support">{{ t('Support') }}</a></li>
                 @if(Auth::guest())
-                    <li class="splash-nav-link splash-nav-link-highlight"><a href="/login">Login</a></li>
-                    <li class="splash-nav-link splash-nav-link-highlight-border"><a href="/register">Register</a></li>
+                    <li class="splash-nav-link splash-nav-link-highlight"><a href="/login">{{ t('Login') }}</a></li>
+                    <li class="splash-nav-link splash-nav-link-highlight-border"><a href="/register">{{ t('Register') }}</a></li>
                 @else
-                    <li class="splash-nav-link splash-nav-link-highlight-border"><a href="/home">Dashboard</a></li>
+                    <li class="splash-nav-link splash-nav-link-highlight-border"><a href="/home">{{ t('Dashboard') }}</a></li>
                 @endif
             </ul>
         </div>
