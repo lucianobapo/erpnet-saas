@@ -3,6 +3,7 @@
 ## Start using
 ```shell
 php artisan vendor:publish --tag=publicSaas --force
+php artisan vendor:publish --tag=publicSaas --force
 ```
 
 cd ~/code/erpnet-saas/ && git cmt && cd ~/code/erpnet-spark/ && composer update
