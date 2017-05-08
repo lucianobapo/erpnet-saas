@@ -16,7 +16,7 @@
 // require('./core/bootstrap');
 
 // window.jQuery = window.$ = require('../../../../../node_modules/jquery/dist/jquery');
-// require('../../../../../node_modules/bootstrap-sass/assets/javascripts/bootstrap');
+require('../../../../../node_modules/bootstrap-sass/assets/javascripts/bootstrap');
 // window.Vue = require('../../../../../node_modules/vue/dist/vue');
 
 new Vue(require('./spark'));
