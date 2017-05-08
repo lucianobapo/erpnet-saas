@@ -14,7 +14,7 @@
  */
 
 // require('./core/bootstrap');
-require('../../../../../node_modules/vue/dist/vue');
+var Vue = require('../../../../../node_modules/vue/dist/vue');
 window.jQuery = window.$ = require('../../../../../node_modules/jquery/dist/jquery');
 require('../../../../../node_modules/bootstrap-sass/assets/javascripts/bootstrap');
 
