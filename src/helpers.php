@@ -17,7 +17,8 @@ if (! function_exists('t')) {
      */
     function t($key = null, $replace = [], $locale = null)
     {
-        $key=str_replace('erpnetSaas::','erpnetSaas::spark.',$key);
+//        $key=str_replace('erpnetSaas::','erpnetSaas::spark.',$key);
+        $key='erpnetSaas::spark'.$key;
         return app('translator')->getFromJson($key, $replace, $locale);
     }
 }
