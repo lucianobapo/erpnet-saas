@@ -40,6 +40,11 @@ class ErpnetSaasServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        config([
+            'app.locale'=>env('APP_LOCALE','en'),
+            'app.timezone'=>env('APP_TIMEZONE','UTC'),
+        ]);
+
         $app = $this->app;
 
         $projectRootDir = __DIR__.DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR;
@@ -47,6 +52,7 @@ class ErpnetSaasServiceProvider extends ServiceProvider
         $configPath = $projectRootDir . "config".DIRECTORY_SEPARATOR."erpnetSaas.php";
         $viewsPath = $projectRootDir . "resources".DIRECTORY_SEPARATOR."views";
         $assetsPath = $projectRootDir . "resources".DIRECTORY_SEPARATOR."assets";
+        $publicPath = $projectRootDir . "public";
 
         $this->mergeConfigFrom($configPath, 'erpnetSaas');
 
@@ -57,6 +63,10 @@ class ErpnetSaasServiceProvider extends ServiceProvider
 //        $this->publishes([
 //            $projectRootDir.'node_modules/font-awesome/fonts' => public_path('fonts'),
 //        ], 'erpnetWidgetResourceFonts');
+
+        $this->publishes([
+            $publicPath => public_path('/')
+        ], 'publicSaas');
 
         $this->publishes([
             $assetsPath => resource_path('assets/vendor/erpnetSaas'),

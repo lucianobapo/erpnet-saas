@@ -1,5 +1,10 @@
 # erpnet-saas
 
+## Start using
+```shell
+php artisan vendor:publish --tag=publicSaas --force
+```
+
 cd ~/code/erpnet-saas/ && git cmt && cd ~/code/erpnet-spark/ && composer update
 
 npm install gulp vue@1.0.0 vue-resource@0.1.11 underscore promise moment laravel-elixir laravel-elixir-browserify-official --save-dev

@@ -2,7 +2,7 @@
 <nav class="row splash-nav">
     <div class="col-md-10 col-md-offset-1">
         <div class="pull-left splash-brand">
-            <i class="fa fa-btn fa-sun-o"></i>Laravel Spark
+            <i class="fa fa-btn fa-sun-o"></i>{{ config('app.name') }}
         </div>
 
         <div class="navbar-header">
@@ -15,7 +15,7 @@
 
         <div id="primary-nav" class="navbar-collapse collapse splash-nav-list">
             <ul class="nav navbar-nav navbar-right inline-list">
-                <li class="splash-nav-link active"><a href="/features">Features</a></li>
+                <li class="splash-nav-link active"><a href="/features">@lang('Features')</a></li>
                 <li class="splash-nav-link"><a href="/support">Support</a></li>
                 @if(Auth::guest())
                     <li class="splash-nav-link splash-nav-link-highlight"><a href="/login">Login</a></li>
