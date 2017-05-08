@@ -3,6 +3,7 @@
 namespace ErpNET\Saas\v1\Services;
 
 use ErpNET\Saas\v1\Entities\Subscriptions\Plan;
+use ErpNET\Saas\v1\Services\Ux\Data\DataTabs;
 use ErpNET\Saas\v1\Services\Ux\Settings\Tabs;
 use Illuminate\Support\Facades\Auth;
 use ErpNET\Saas\v1\Entities\Teams\CanJoinTeams;
@@ -159,6 +160,13 @@ class ErpnetSparkService
      * @var Tabs
      */
     public static $settingsTabs;
+
+    /**
+     * The settings tabs configuration.
+     *
+     * @var Tabs
+     */
+    public static $dataTabs;
 
     /**
      * The team settings tabs configuration.
@@ -572,6 +580,17 @@ class ErpnetSparkService
     }
 
     /**
+     * Get the configuration for the Spark settings tabs.
+     *
+     * @return DataTabs
+     */
+    public static function dataTabs()
+    {
+        return static::$dataTabs ?:
+            static::$dataTabs = static::createDefaultDataTabs();
+    }
+
+    /**
      * Create the default settings tabs configuration.
      *
      * @return DashboardTabs
@@ -585,6 +604,22 @@ class ErpnetSparkService
         }
 
         return new DashboardTabs($tabs);
+    }
+
+    /**
+     * Create the default settings tabs configuration.
+     *
+     * @return DataTabs
+     */
+    protected static function createDefaultDataTabs()
+    {
+        $tabs = [(new DataTabs)->employee()];
+//
+//        if (count(static::plans()->active()) > 0) {
+//            $tabs[] = (new DataTabs)->subscription();
+//        }
+
+        return new DataTabs($tabs);
     }
 
     /**
