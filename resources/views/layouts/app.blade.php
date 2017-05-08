@@ -32,6 +32,7 @@
 <!-- Vue App For Spark Screens -->
 <div id="spark-app" v-cloak>
     <!-- Navigation -->
+    {{ dd(Route::currentRouteName()) }}
     @if (Auth::check())
         @include('erpnetSaas::nav.authenticated')
     @else
@@ -44,8 +45,11 @@
     <!-- Footer -->
     @include('erpnetSaas::common.footer')
 
-            <!-- JavaScript Application -->
+    <!-- JavaScript Application -->
     <script src="{{ elixir('js/app.js') }}"></script>
+    <!-- Footer Scripts -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </div>
 </body>
 </html>
