@@ -39,15 +39,15 @@ class DashboardController extends Controller
      */
     public function show(Request $request)
     {
+        $user = $this->users->getCurrentUser();
+
         $data = [
             'activeTab' => $request->get('tab', ErpnetSparkService::firstSettingsTabKey()),
             'invoices' => [],
-            'user' => $this->users->getCurrentUser(),
+            'user' => $user,
         ];
 
-        dd($data);
-
-        if (Auth::user()->stripe_id) {
+        if ($user->stripe_id) {
             $data['invoices'] = Cache::remember('spark:invoices:'.Auth::id(), 30, function () {
                 return Auth::user()->invoices();
             });

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('erpnetSaas::layouts.app')
 
 <!-- Scripts -->
 @section('scripts')
@@ -39,7 +39,7 @@
                 <div class="tab-content">
                     @foreach (Spark::settingsTabs()->displayable() as $tab)
                         <div role="tabpanel" class="tab-pane{{ $tab->key == $activeTab ? ' active' : '' }}" id="{{ $tab->key }}">
-                            @include($tab->view)
+                            @include('erpnetSaas::'.$tab->view)
                         </div>
                     @endforeach
                 </div>
