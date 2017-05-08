@@ -28,7 +28,7 @@ class DashboardController extends Controller
     {
         $this->users = $users;
 
-        $this->middleware('auth');
+//        $this->middleware('auth');
     }
 
     /**
@@ -45,12 +45,14 @@ class DashboardController extends Controller
             'user' => $this->users->getCurrentUser(),
         ];
 
+        dd($data);
+
         if (Auth::user()->stripe_id) {
             $data['invoices'] = Cache::remember('spark:invoices:'.Auth::id(), 30, function () {
                 return Auth::user()->invoices();
             });
         }
 
-        return view('settings.dashboard', $data);
+        return view('erpnetSaas::settings.dashboard', $data);
     }
 }

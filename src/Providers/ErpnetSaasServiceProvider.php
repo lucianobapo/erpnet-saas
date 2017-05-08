@@ -2,6 +2,7 @@
 
 namespace ErpNET\Saas\Providers;
 
+use App\User;
 use ErpNET\Saas\v1\Entities\Teams\Team;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Schema;
@@ -152,6 +153,13 @@ class ErpnetSaasServiceProvider extends ServiceProvider
         }
 
         ErpnetSparkService::generateInvoicesWith($this->invoiceWith);
+        ErpnetSparkService::retrieveUsersWith(function(){
+            return new User([
+                'name' => 'teste',
+                'email' => 'teste',
+                'subscriptions' => 'teste',
+            ]);
+        });
 
     }
 
