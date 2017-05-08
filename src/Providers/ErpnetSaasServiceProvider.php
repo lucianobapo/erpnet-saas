@@ -41,8 +41,8 @@ class ErpnetSaasServiceProvider extends ServiceProvider
     public function boot()
     {
         config([
-            'app.locale'=>env('APP_LOCALE','en'),
-            'app.timezone'=>env('APP_TIMEZONE','UTC'),
+            'app.locale'=>env('APP_LOCALE','pt_BR'),
+            'app.timezone'=>env('APP_TIMEZONE','America/Sao_Paulo'),
         ]);
 
         $app = $this->app;
@@ -51,6 +51,7 @@ class ErpnetSaasServiceProvider extends ServiceProvider
         $routesDir = $projectRootDir."routes".DIRECTORY_SEPARATOR;
         $configPath = $projectRootDir . "config".DIRECTORY_SEPARATOR."erpnetSaas.php";
         $viewsPath = $projectRootDir . "resources".DIRECTORY_SEPARATOR."views";
+        $translationsPath = $projectRootDir . "resources".DIRECTORY_SEPARATOR."lang";
         $assetsPath = $projectRootDir . "resources".DIRECTORY_SEPARATOR."assets";
         $publicPath = $projectRootDir . "public";
 
@@ -58,22 +59,31 @@ class ErpnetSaasServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom($viewsPath, 'erpnetSaas');
 
+        $this->loadTranslationsFrom($translationsPath, 'erpnetSaas');
+
         AliasLoader::getInstance()->alias("Spark", \ErpNET\Saas\v1\Services\ErpnetSparkService::class);
 
 //        $this->publishes([
 //            $projectRootDir.'node_modules/font-awesome/fonts' => public_path('fonts'),
 //        ], 'erpnetWidgetResourceFonts');
 
+        //Publish public build
         $this->publishes([
             $publicPath => public_path('/')
         ], 'publicSaas');
 
+        //Publish assets
         $this->publishes([
             $assetsPath => resource_path('assets/vendor/erpnetSaas'),
             $projectRootDir.'gulpfile.js' => base_path('gulpfileErpnetSaas.js'),
         ], 'assetsSaas');
 
-        //Publish resources
+        //Publish translations
+        $this->publishes([
+            $translationsPath => resource_path('lang/vendor/erpnetSaas'),
+        ], 'translationsSaas');
+
+        //Publish views
         $this->publishes([
             $viewsPath => resource_path('views/vendor/erpnetSaas'),
         ], 'viewsSaas');
