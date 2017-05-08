@@ -10,7 +10,7 @@
         <div class="row splash-inspiration-row">
             <div class="col-md-4 col-md-offset-1">
                 <div id="splash-inspiration-heading">
-                    Create Amazing Experiences.
+                    {{ t('Create Amazing Experiences.') }}
                 </div>
 
                 <div id="splash-inspiration-text">

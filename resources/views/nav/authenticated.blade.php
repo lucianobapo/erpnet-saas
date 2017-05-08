@@ -13,7 +13,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="/">
-                Spark
+                {{ config('app.name') }}
             </a>
         </div>
 

@@ -7,11 +7,11 @@
 
         <ul class="dropdown-menu" role="menu" v-if="user">
             <!-- Settings -->
-            <li class="dropdown-header">Settings</li>
+            <li class="dropdown-header">{{ t('Settings') }}</li>
 
             <li>
                 <a href="/settings">
-                    <i class="fa fa-btn fa-fw fa-cog"></i>@lang('Your Settings')
+                    <i class="fa fa-btn fa-fw fa-cog"></i>{{ t('Your Settings') }}
                 </a>
             </li>
 
@@ -21,18 +21,18 @@
             <!-- Team Settings -->
             <li v-if="user.current_team_id">
                 <a href="/settings/teams/@{{ user.current_team_id }}">
-                    <i class="fa fa-btn fa-fw fa-cog"></i>@lang('Team Settings')
+                    <i class="fa fa-btn fa-fw fa-cog"></i>{{ t('Team Settings') }}
                 </a>
             </li>
 
             <li class="divider"></li>
 
-            <li class="dropdown-header">Teams</li>
+            <li class="dropdown-header">{{ t('Teams') }}</li>
 
             <!-- Create New Team -->
             <li>
                 <a href="/settings?tab=teams">
-                    <i class="fa fa-btn fa-fw fa-plus"></i>@lang('Create New Team')
+                    <i class="fa fa-btn fa-fw fa-plus"></i>{{ t('Create New Team') }}
                 </a>
             </li>
 
