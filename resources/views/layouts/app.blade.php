@@ -47,10 +47,10 @@
     @include('erpnetSaas::common.footer')
 
     <!-- Footer Scripts -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    {{--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>--}}
     {{--<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>--}}
 
-<!-- JavaScript Application -->
+    <!-- JavaScript Application -->
     <script src="{{ elixir('js/app.js') }}"></script>
 </div>
 </body>
