@@ -37,7 +37,8 @@ $router->group($routeConfig, function(Router $router) {
 //    $router->get('home', 'HomeController@show');
 
     // Terms Routes...
-    $router->get('terms', 'TermsController@show');
+    $router->get('terms', 'TermsController@terms');
+    $router->get('privacy', 'TermsController@privacy');
 
     // Settings Dashboard Routes...
     $router->get('settings', 'Settings\DashboardController@show');
