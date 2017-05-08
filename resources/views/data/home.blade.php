@@ -16,11 +16,6 @@
                     <div class="panel-body">
                         <div class="spark-settings-tabs">
                             <ul class="nav spark-settings-tabs-stacked" role="tablist">
-                                <li role="presentation" class="active">
-                                    <a href="#" aria-controls="" role="tab" data-toggle="tab">
-                                        <i class="fa fa-btn fa-fw"></i>&nbsp;Fornecedores
-                                    </a>
-                                </li>
                                 @foreach (isset($tabs)?$tabs:[] as $tab)
                                     <li role="presentation"{!! $tab->key === $activeTab ? ' class="active"' : '' !!}>
                                         <a href="#{{ $tab->key }}" aria-controls="{{ $tab->key }}" role="tab" data-toggle="tab">

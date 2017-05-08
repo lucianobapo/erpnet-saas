@@ -4,6 +4,8 @@ namespace ErpNET\Saas\Providers;
 
 use App\User;
 use ErpNET\Saas\v1\Entities\Teams\Team;
+use ErpNET\Saas\v1\Services\Ux\Tab;
+use ErpNET\Saas\v1\Services\Ux\Tabs;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -279,7 +281,7 @@ class ErpnetSaasServiceProvider extends ServiceProvider
      */
     protected function customizeDataTabs()
     {
-        ErpnetSparkService::dataTabs()->configure(function ($tabs) {
+        ErpnetSparkService::dataTabs()->configure(function (Tab $tabs) {
             return [
                 $tabs->employee(),
                 // $tabs->make('Name', 'view', 'fa-icon'),

@@ -613,7 +613,7 @@ class ErpnetSparkService
      */
     protected static function createDefaultDataTabs()
     {
-        $tabs = [(new DataTabs)->employee()];
+        $tabs = [(new DataTabs)->employee(), (new DataTabs)->internalCourse(), (new DataTabs)->externalCourse(), ];
 //
 //        if (count(static::plans()->active()) > 0) {
 //            $tabs[] = (new DataTabs)->subscription();
