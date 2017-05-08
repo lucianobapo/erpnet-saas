@@ -2,7 +2,7 @@
     <!-- Profile Basics -->
     <spark-settings-profile-basics-screen inline-template>
         <div id="spark-settings-profile-basics-screen" class="panel panel-default">
-            <div class="panel-heading">t('Employee')</div>
+            <div class="panel-heading">{{ t('Employee') }}</div>
 
             <div class="panel-body">
                 <spark-error-alert :form="forms.updateProfileBasics"></spark-error-alert>

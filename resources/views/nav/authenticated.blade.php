@@ -13,7 +13,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="/">
-                {{ config('app.name') }}
+                <i class="fa fa-btn fa-sun-o"></i>{{ config('app.name') }}
             </a>
         </div>
 
