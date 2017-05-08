@@ -13,7 +13,7 @@ class TermsController extends Controller
      */
     public function show()
     {
-        $terms = (new Parsedown)->text(file_get_contents(base_path('terms.md')));
+        $terms = (new Parsedown)->text(file_get_contents(resource_path('views/terms.md')));
 
         return view('terms', compact('terms'));
     }
