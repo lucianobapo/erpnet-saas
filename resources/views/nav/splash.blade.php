@@ -15,6 +15,7 @@
 
         <div id="primary-nav" class="navbar-collapse collapse splash-nav-list">
             <ul class="nav navbar-nav navbar-right inline-list">
+                <li class="splash-nav-link active"><a href="/data">{{ t('Data') }}</a></li>
                 <li class="splash-nav-link active"><a href="/features">{{ t('Features') }}</a></li>
                 <li class="splash-nav-link"><a href="/support">{{ t('Support') }}</a></li>
                 @if(Auth::guest())

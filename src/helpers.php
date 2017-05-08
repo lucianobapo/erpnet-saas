@@ -19,8 +19,12 @@ if (! function_exists('t')) {
     {
         $translated = app('translator')->getFromJson('erpnetSaas::spark.'.$key, $replace, $locale);
 
-        if(strpos($translated,'erpnetSaas::spark.')!==false)
-            return app('translator')->getFromJson($key, $replace, $locale);
+        if(strpos($translated,'erpnetSaas::spark.')!==false){
+            $translatedFallback = app('translator')->getFromJson('spark.'.$key, $replace, $locale);
+            if(strpos($translatedFallback,'spark.')!==false)
+                return app('translator')->getFromJson($key, $replace, $locale);
+            return $translatedFallback;
+        }
 
         return $translated;
     }
