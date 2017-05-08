@@ -2,7 +2,7 @@
 
 ## Start using
 ```shell
-php artisan vendor:publish --tag=publicSaas --force
+php artisan vendor:publish --tag=erpnetPermissions --force
 php artisan vendor:publish --tag=publicSaas --force
 ```
 
