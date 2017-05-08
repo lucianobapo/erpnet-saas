@@ -16,7 +16,7 @@
     <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
 
     <!-- Spark Globals -->
-    @include('scripts.globals')
+    @include('erpnetSaas::scripts.globals')
 
             <!-- Injected Scripts -->
     @yield('scripts', '')
@@ -33,16 +33,16 @@
 <div id="spark-app" v-cloak>
     <!-- Navigation -->
     @if (Auth::check())
-    @include('nav.authenticated')
+        @include('erpnetSaas::nav.authenticated')
     @else
-    @include('nav.guest')
+        @include('erpnetSaas::nav.guest')
     @endif
 
-            <!-- Main Content -->
+    <!-- Main Content -->
     @yield('content')
 
-            <!-- Footer -->
-    @include('common.footer')
+    <!-- Footer -->
+    @include('erpnetSaas::common.footer')
 
             <!-- JavaScript Application -->
     <script src="{{ elixir('js/app.js') }}"></script>
