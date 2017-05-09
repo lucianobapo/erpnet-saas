@@ -1,45 +1,58 @@
 <div id="spark-settings-profile-screen">
-    <!-- Profile Basics -->
     <spark-settings-profile-basics-screen inline-template>
         <div id="spark-settings-profile-basics-screen" class="panel panel-default">
             <div class="panel-heading">{{ t('Employee') }}</div>
-
-            <div class="panel-body">
-                <spark-error-alert :form="forms.updateProfileBasics"></spark-error-alert>
-
-                <div class="alert alert-success" v-if="forms.updateProfileBasics.successful">
-                    <i class="fa fa-btn fa-check-circle"></i>Great! Your profile was successfully updated.
-                </div>
-
-                <form class="form-horizontal" role="form">
-                    <spark-text :display="'Name'"
-                                :form="forms.updateProfileBasics"
-                                :name="'name'"
-                                :input.sync="forms.updateProfileBasics.name">
-                    </spark-text>
-
-                    <spark-email :display="'E-Mail Address'"
-                                 :form="forms.updateProfileBasics"
-                                 :name="'email'"
-                                 :input.sync="forms.updateProfileBasics.email">
-                    </spark-email>
-
-                    <div class="form-group">
-                        <div class="col-md-6 col-md-offset-4">
-                            <button type="submit" class="btn btn-primary"
-                                    @click.prevent="updateProfileBasics" :disabled="forms.updateProfileBasics.busy">
-                            <span v-if="forms.updateProfileBasics.busy">
-                                <i class="fa fa-btn fa-spinner fa-spin"></i> Updating
-                            </span>
-
-                                <span v-else>
-                                <i class="fa fa-btn fa-save"></i> Update
-                            </span>
+            <div class="panel-body" id="employeeData">
+                {{--<h2>Lista de usuários:</h2>--}}
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" data-toggle="modal" data-target="#create-item"
+                                class="btn btn-primary">
+                            <span class="glyphicon glyphicon-file"></span> {{ t('New') }}
+                        </button>
+                    </div>
+                    <div v-for="item in items" class="col-md-12">
+                        <div class="pull-right">
+                            <button  class="edit-modal btn btn-warning" @click.prevent="editItem(item)">
+                                <span class="glyphicon glyphicon-edit"></span> {{ t('Edit') }}
+                            </button>
+                            <button  class="edit-modal btn btn-danger" @click.prevent="deleteItem(item)">
+                                <span class="glyphicon glyphicon-trash"></span> {{ t('Remove') }}
                             </button>
                         </div>
+                        <ul>
+                            <li v-for="column in columns">
+                                @{{ column.displayName }}: @{{ item[column.name] }}
+                            </li>
+                        </ul>
                     </div>
-                </form>
+
+                </div>
+
+                <nav>
+                    <ul class="pagination">
+                        <li v-if="pagination.current_page > 1">
+                            <a href="#" aria-label="Previous" @click.prevent="changePage(pagination.current_page - 1)">
+                                <span aria-hidden="true">«</span>
+                            </a>
+                        </li>
+                        <li v-for="page in pagesNumber" v-bind:class="[ page == isActived ? 'active' : '']">
+                            <a href="#" @click.prevent="changePage(page)">
+                                @{{ page }}
+                            </a>
+                        </li>
+                        <li v-if="pagination.current_page < pagination.last_page">
+                            <a href="#" aria-label="Next" @click.prevent="changePage(pagination.current_page + 1)">
+                                <span aria-hidden="true">»</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                @include('erpnetSaas::data.tabs.employee.create')
+                @include('erpnetSaas::data.tabs.employee.edit')
             </div>
+
         </div>
     </spark-settings-profile-basics-screen>
 
