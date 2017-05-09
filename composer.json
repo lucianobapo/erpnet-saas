@@ -21,6 +21,7 @@
     "ext-zip": "^1.13",
     "dingo/api": "^1.1",
     "laravel/cashier": "^7.0",
+    "ilhanet/erpnet-models": "dev-master",
     "erusev/parsedown": "^1.6",
     "guzzlehttp/guzzle": "^6.2",
     "dompdf/dompdf": "^0.8.0"
@@ -32,6 +33,10 @@
     {
       "type": "vcs",
       "url": "https://github.com/lucianobapo/api.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/lucianobapo/erpnet-models.git"
     }
   ],
   "autoload": {

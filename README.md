@@ -7,6 +7,12 @@ php artisan vendor:publish --tag=erpnetPermissions --force
 php artisan vendor:publish --tag=publicSaas --force
 ```
 
+## Develop assets
+```shell
+php artisan vendor:publish --tag=assetsSaas --force
+gulp --gulpfile gulpfileErpnetSaas.js
+```
+
 cd ~/code/erpnet-saas/ && git cmt && cd ~/code/erpnet-spark/ && composer update
 
 npm install gulp vue@1.0.0 vue-resource@0.1.11 underscore promise moment laravel-elixir laravel-elixir-browserify-official --save-dev

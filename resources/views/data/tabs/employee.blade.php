@@ -1,6 +1,6 @@
-<div id="spark-settings-profile-screen">
-    <spark-settings-profile-basics-screen inline-template>
-        <div id="spark-settings-profile-basics-screen" class="panel panel-default">
+<div id="spark-data-employee">
+    <spark-data-employee-screen inline-template>
+        <div id="spark-data-employee-screen" class="panel panel-default">
             <div class="panel-heading">{{ t('Employee') }}</div>
             <div class="panel-body" id="employeeData">
                 {{--<h2>Lista de usuários:</h2>--}}
@@ -29,31 +29,31 @@
 
                 </div>
 
-                <nav>
-                    <ul class="pagination">
-                        <li v-if="pagination.current_page > 1">
-                            <a href="#" aria-label="Previous" @click.prevent="changePage(pagination.current_page - 1)">
-                                <span aria-hidden="true">«</span>
-                            </a>
-                        </li>
-                        <li v-for="page in pagesNumber" v-bind:class="[ page == isActived ? 'active' : '']">
-                            <a href="#" @click.prevent="changePage(page)">
-                                @{{ page }}
-                            </a>
-                        </li>
-                        <li v-if="pagination.current_page < pagination.last_page">
-                            <a href="#" aria-label="Next" @click.prevent="changePage(pagination.current_page + 1)">
-                                <span aria-hidden="true">»</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                {{--<nav>--}}
+                    {{--<ul class="pagination">--}}
+                        {{--<li v-if="pagination.current_page > 1">--}}
+                            {{--<a href="#" aria-label="Previous" @click.prevent="changePage(pagination.current_page - 1)">--}}
+                                {{--<span aria-hidden="true">«</span>--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
+                        {{--<li v-for="page in pagesNumber" v-bind:class="[ page == isActived ? 'active' : '']">--}}
+                            {{--<a href="#" @click.prevent="changePage(page)">--}}
+                                {{--@{{ page }}--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
+                        {{--<li v-if="pagination.current_page < pagination.last_page">--}}
+                            {{--<a href="#" aria-label="Next" @click.prevent="changePage(pagination.current_page + 1)">--}}
+                                {{--<span aria-hidden="true">»</span>--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
+                    {{--</ul>--}}
+                {{--</nav>--}}
 
-                @include('erpnetSaas::data.tabs.employee.create')
-                @include('erpnetSaas::data.tabs.employee.edit')
+                {{--@include('erpnetSaas::data.tabs.employee.create')--}}
+                {{--@include('erpnetSaas::data.tabs.employee.edit')--}}
             </div>
 
         </div>
-    </spark-settings-profile-basics-screen>
+    </spark-data-employee-screen>
 
 </div>
