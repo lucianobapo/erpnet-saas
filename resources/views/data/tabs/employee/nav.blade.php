@@ -16,7 +16,7 @@
             </a>
         </li>
         <li v-if="pagination.current_page < pagination.last_page">
-            <a href="#" aria-label="Next" title="Next" @click.prevent="changePage(pagination.current_page + 1)">
+            <a href="#" aria-label="Next" title="Next" @click.prevent="changePage(parseInt(pagination.current_page) + 1)">
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </a>
         </li>

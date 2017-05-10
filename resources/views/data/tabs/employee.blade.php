@@ -13,6 +13,9 @@
                         </div>
                     </div>
                 </div>
+
+                @include('erpnetSaas::data.tabs.employee.nav')
+
                 <div class="row">
                     <div v-for="item in items" class="col-xs-12 well well-sm">
                         <div class="row">
