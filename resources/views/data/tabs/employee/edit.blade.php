@@ -14,7 +14,7 @@
                         <label for="@{{ column.name }}">@{{ column.displayName }}</label>
                         <input name="@{{ column.name }}" class="form-control"
                                type="@{{ column.formInputType }}" placeholder="@{{ column.formInputPlaceholder }}"
-                               v-model="fillItem[column.name]" />
+                               v-model="column.fillItemModel" />
                         <span v-if="formErrorsUpdate[column.name]" class="error text-danger">@{{ formErrorsUpdate[column.name] }}</span>
                     </div>
                     <div class="form-group">
