@@ -10,23 +10,17 @@
             </div>
             <div class="modal-body">
                 <form method="post" enctype="multipart/form-data" v-on:submit.prevent="updateItem(fillItem.id)">
-                    <div class="form-group">
-                        <label for="title">Title:</label>
-                        <input type="text" name="title" class="form-control" v-model="fillItem.username" />
-                        <span v-if="formErrorsUpdate['title']" class="error text-danger">
-                                                @{{ formErrorsUpdate['title'] }}
-                                            </span>
+                    <div class="form-group" v-for="column in columns">
+                        <label for="@{{ column.name }}">@{{ column.displayName }}</label>
+                        <input name="@{{ column.name }}" class="form-control"
+                               type="@{{ column.formInputType }}" placeholder="@{{ column.formInputPlaceholder }}"
+                               v-model="fillItem[column.name]" />
+                        <span v-if="formErrorsUpdate[column.name]" class="error text-danger">@{{ formErrorsUpdate[column.name] }}</span>
                     </div>
                     <div class="form-group">
-                        <label for="title">Description:</label>
-                        <textarea name="description" class="form-control" v-model="fillItem.email">
-                                            </textarea>
-                        <span v-if="formErrorsUpdate['description']" class="error text-danger">
-                                                @{{ formErrorsUpdate['description'] }}
-                                            </span>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-btn fa-save"></i> {{ t('Save') }}
+                        </button>
                     </div>
                 </form>
             </div>
