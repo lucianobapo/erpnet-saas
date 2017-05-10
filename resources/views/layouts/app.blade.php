@@ -10,6 +10,8 @@
     <!-- Fonts -->
     {{--<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet'--}}
           {{--type='text/css'>--}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel='stylesheet'
+          type='text/css'>
 
     <!-- Styles -->
     <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
@@ -51,10 +53,10 @@
     {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>--}}
     {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.2/vue.js"></script>--}}
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
     <!-- JavaScript Application -->
     <script src="{{ elixir('js/app.js') }}"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </div>
 </body>
 </html>
