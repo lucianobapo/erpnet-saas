@@ -79,7 +79,7 @@ class ErpnetSaasServiceProvider extends ServiceProvider
         //Publish assets
         $this->publishes([
             $assetsPath => resource_path('assets/vendor/erpnetSaas'),
-            $projectRootDir.'gulpfile.js' => base_path('gulpfileErpnetSaas.js'),
+            $projectRootDir.'gulpfileErpnetSaas.js' => base_path('gulpfileErpnetSaas.js'),
         ], 'assetsSaas');
 
         //Publish translations

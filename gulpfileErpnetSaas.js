@@ -12,7 +12,11 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-  mix.sass('../vendor/erpnetSaas/sass/app.scss')
+    mix.copy([
+        'node_modules/bootstrap-sass/assets/fonts/*',
+        'node_modules/font-awesome/fonts/**'
+    ], 'public/fonts');
+    mix.sass('../vendor/erpnetSaas/sass/app.scss')
      .browserify('../vendor/erpnetSaas/js/app.js')
      .version(['css/app.css', 'js/app.js']);
 });
