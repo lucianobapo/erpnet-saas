@@ -1,5 +1,6 @@
 <div id="spark-data-employee">
     <spark-data-employee-screen inline-template>
+        <vue-toastr v-ref:toastr></vue-toastr>
         <div id="spark-data-employee-screen" class="panel panel-default">
             <div class="panel-heading">{{ t('Employee') }}</div>
             <div class="panel-body" id="employeeData">
