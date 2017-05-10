@@ -5,13 +5,17 @@
             <div class="panel-body" id="employeeData">
                 {{--<h2>Lista de usuários:</h2>--}}
                 <div class="row">
-                    <div class="col-md-12">
-                        <button type="button" data-toggle="modal" data-target="#create-item"
-                                class="btn btn-primary">
-                            <span class="glyphicon glyphicon-file"></span> {{ t('New') }}
-                        </button>
+                    <div class="col-md-12 well well-sm">
+                        <div class="pull-right">
+                            <button type="button" data-toggle="modal" data-target="#create-item"
+                                    class="btn btn-primary">
+                                <span class="glyphicon glyphicon-file"></span> {{ t('New') }}
+                            </button>
+                        </div>
                     </div>
-                    <div v-for="item in items" class="col-md-12">
+                </div>
+                <div class="row">
+                    <div v-for="item in items" class="col-md-12 well well-sm">
                         <div class="pull-right">
                             <button  class="edit-modal btn btn-warning" @click.prevent="editItem(item)">
                                 <span class="glyphicon glyphicon-edit"></span> {{ t('Edit') }}
@@ -49,8 +53,8 @@
                     {{--</ul>--}}
                 {{--</nav>--}}
 
-                {{--@include('erpnetSaas::data.tabs.employee.create')--}}
-                {{--@include('erpnetSaas::data.tabs.employee.edit')--}}
+                @include('erpnetSaas::data.tabs.employee.create')
+                @include('erpnetSaas::data.tabs.employee.edit')
             </div>
 
         </div>

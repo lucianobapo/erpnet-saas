@@ -6,57 +6,22 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
-                <h4 class="modal-title" id="myModalLabel">Create New Post</h4>
+                <h4 class="modal-title" id="myModalLabel">{{ t('Create New Data') }}</h4>
             </div>
             <div class="modal-body">
                 <form method="post" enctype="multipart/form-data" v-on:submit.prevent="createItem">
 
-                    <div class="form-group">
-                        <label for="from">Mensagem de:</label>
-                        <input type="text" name="from" class="form-control" value="Tigresa VIP" v-model="newItem.from" />
-                        <span v-if="formErrors['from']" class="error text-danger">
-                                                @{{ formErrors['from'] }}
-                                            </span>
+                    <div class="form-group" v-for="column in columns">
+                        <label for="@{{ column.name }}">@{{ column.displayName }}</label>
+                        <input name="@{{ column.name }}" class="form-control"
+                               type="@{{ column.formInputType }}" placeholder="@{{ column.formInputPlaceholder }}"
+                               v-model="newItem[column.name]" />
+                        <span v-if="formErrors[column.name]" class="error text-danger">@{{ formErrors[column.name] }}</span>
                     </div>
                     <div class="form-group">
-                        <label for="to">Para:</label>
-                        <input type="text" name="to" class="form-control" value="luciano.bapo@gmail.com" v-model="newItem.to" />
-                        <span v-if="formErrors['to']" class="error text-danger">
-                                                @{{ formErrors['to'] }}
-                                            </span>
-                    </div>
-                    <div class="form-group">
-                        <label for="title">Assunto da Mensagem:</label>
-                        <input type="text" name="title" class="form-control" value="Mensagem da Tigresa" v-model="newItem.title" />
-                        <span v-if="formErrors['title']" class="error text-danger">
-                                                @{{ formErrors['title'] }}
-                                            </span>
-                    </div>
-                    <div class="form-group">
-                        <label for="greeting">Introdução:</label>
-                        <input type="text" name="greeting" class="form-control" value="Olá," v-model="newItem.greeting" />
-                        <span v-if="formErrors['greeting']" class="error text-danger">
-                                                @{{ formErrors['greeting'] }}
-                                            </span>
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Mensagem:</label>
-                        <textarea name="description" class="form-control" v-model="newItem.description">
-                                                Hoje tenho novidades para todos!
-                                            </textarea>
-                        <span v-if="formErrors['description']" class="error text-danger">
-                                                @{{ formErrors['description'] }}
-                                            </span>
-                    </div>
-                    <div class="form-group">
-                        <label for="salutation">Saudação:</label>
-                        <input type="text" name="salutation" class="form-control" value="Até a próxima pessoal, Tigresa" v-model="newItem.salutation" />
-                        <span v-if="formErrors['salutation']" class="error text-danger">
-                                                @{{ formErrors['salutation'] }}
-                                            </span>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-success">Enviar Mensagem</button>
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-btn fa-save"></i> {{ t('Save') }}
+                        </button>
                     </div>
                 </form>
             </div>
