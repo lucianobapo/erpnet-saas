@@ -13,13 +13,14 @@
  |
  */
 
+
 require('./core/bootstrap');
 
 new Vue(require('./spark'));
 
 const employeeData = new Vue({
     el :'#employeeData',
-    data :{
+    data : {
         items: [],
         pagination: {
             total: 0,

@@ -3,21 +3,21 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
 
-// Variables
-@import "variables";
-
 // Bootstrap
+$icon-font-path: "/fonts/bootstrap/";
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+// font-awesome
+$fa-font-path: "/fonts";
+@import "node_modules/font-awesome/scss/font-awesome";
+
+// vue-toastr
+//@import "../../../../../node_modules/vue-toastr/dist/vue-toastr.css";
 
 /*
  * Spark Variables...
  */
 @import "themes/spark/variables";
-
-/*
- * Bootstrap CSS...
- */
-//@import "../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 /**
  * Spark Essentials...

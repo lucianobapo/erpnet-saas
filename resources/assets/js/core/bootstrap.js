@@ -43,6 +43,7 @@ require('bootstrap-sass/assets/javascripts/bootstrap');
  * Define the Spark component extension points.
  */
 Spark.components = {
+    employee: {},
     profileBasics: {},
     teamOwnerBasics: {},
     editTeamMember: {},
