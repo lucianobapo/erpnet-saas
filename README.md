@@ -11,6 +11,7 @@ php artisan vendor:publish --tag=publicSaas --force
 ```shell
 npm install gulp font-awesome bootstrap-sass vue@1.0.0 vue-resource@0.1.11 vue-toastr@^1.0.4 underscore promise moment laravel-elixir laravel-elixir-browserify-official --save-dev
 php artisan vendor:publish --tag=assetsSaas --force
+php artisan vendor:publish --tag=translationsSaas --force
 gulp --gulpfile gulpfileErpnetSaas.js
 ```
 

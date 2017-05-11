@@ -31,5 +31,10 @@ $router
                 if (count(ErpnetSparkService::plans()) > 0) {
                     $router->post('stripe/webhook', 'Stripe\WebhookController@handleWebhook');
                 }
+                $router->get('config/{file}', ['as'=>'config', 'uses'=>function ($file) {
+                    return response()->json([
+                        'data' => config($file),
+                    ]);;
+                }]);
             });
     });

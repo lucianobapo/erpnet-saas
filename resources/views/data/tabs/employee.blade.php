@@ -14,9 +14,15 @@
                     </div>
                 </div>
 
+                <div class="row" v-if="pagination.total==0">
+                    <div class="col-xs-12 well well-sm text-center">
+                        <em>{{ t('No records found') }}</em>
+                    </div>
+                </div>
+
                 @include('erpnetSaas::data.tabs.employee.nav')
 
-                <div class="row">
+                <div class="row" v-if="pagination.total>0">
                     <div v-for="item in items" class="col-xs-12 well well-sm">
                         <div class="row">
                             <div class="col-xs-12 col-sm-8 col-md-6">
