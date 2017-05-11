@@ -1,6 +1,10 @@
 <?php
 
 return array (
+  'Birth date' => 'Data de Nascimento',
+  'Id' => 'Código',
+  'Name' => 'Nome',
+  'Note' => 'Observação',
   'Features' => 'Recursos',
   'Support' => 'Suporte',
   'Create Amazing Experiences' => 
@@ -13,12 +17,17 @@ return array (
   'Login' => 'Entrar',
   'Register' => 'Registrar',
   'External Course' => 'Curso Externo',
-  'Internal Course' => 'Curso Interno',
   'Supplier' => 'Fornecedores',
+  'First' => 'Primeiro',
+  'Last' => 'Último',
+  'Next' => 'Próximo',
+  'Previous' => 'Anterior',
+  'Internal Course' => 'Curso Interno',
   'Edit' => 'Editar',
   'New' => 'Novo',
   'Remove' => 'Remover',
   'Create New Data' => 'Criar novo Registro',
   'Edit Data' => 'Editar Registro',
   'Save' => 'Gravar',
+  'No records found' => 'Nenhum registro encontrado',
 );

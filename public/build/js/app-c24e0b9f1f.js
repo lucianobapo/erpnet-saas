@@ -30665,138 +30665,6 @@ require('./core/bootstrap');
 
 new Vue(require('./spark'));
 
-var employeeData = new Vue({
-    el: '#employeeData',
-    data: {
-        items: [],
-        pagination: {
-            total: 0,
-            per_page: 2,
-            from: 1,
-            to: 0,
-            current_page: 1
-        },
-        offset: 4,
-        formErrors: {},
-        formErrorsUpdate: {},
-        columns: [{ 'name': 'id', 'displayName': 'id' }, { 'name': 'nome', 'displayName': 'nome' }, { 'name': 'data_nascimento', 'displayName': 'data_nascimento' }, { 'name': 'observacao', 'displayName': 'observacao' }],
-        newItem: {
-            'title': '',
-            'description': '',
-            'username': '',
-            'email': ''
-        },
-        fillItem: {
-            'title': '',
-            'description': '',
-            'username': '',
-            'email': '',
-            'id': ''
-        }
-    },
-    computed: {
-        isActived: function isActived() {
-            return this.pagination.current_page;
-        },
-        pagesNumber: function pagesNumber() {
-            if (!this.pagination.to) {
-                return [];
-            }
-            var from = this.pagination.current_page - this.offset;
-            if (from < 1) {
-                from = 1;
-            }
-            var to = from + this.offset * 2;
-            if (to >= this.pagination.last_page) {
-                to = this.pagination.last_page;
-            }
-            var pagesArray = [];
-            while (from <= to) {
-                pagesArray.push(from);
-                from++;
-            }
-            return pagesArray;
-        }
-    },
-    ready: function ready() {
-        this.getVueItems(this.pagination.current_page);
-    },
-    methods: {
-        sendMessage: function sendMessage(item) {
-            var _this = this;
-
-            this.$http.delete('/vueitems/' + item.id).then(function (response) {
-                _this.changePage(_this.pagination.current_page);
-                toastr.success('Post Deleted Successfully.', 'Success Alert', { timeOut: 5000 });
-            });
-        },
-        getVueItems: function getVueItems(page) {
-            var _this2 = this;
-
-            this.$http.get('/erpnet-api/partner?page=' + page).then(function (response) {
-                if (response.data.hasOwnProperty('data')) _this2.$set('items', response.data.data.data);
-                if (response.data.hasOwnProperty('pagination')) _this2.$set('pagination', response.data.pagination);
-            });
-        },
-        createItem: function createItem() {
-            var _this3 = this;
-
-            var input = this.newItem;
-            console.log(input);
-            this.$http.post('/vueitems', input).then(function (response) {
-                _this3.changePage(_this3.pagination.current_page);
-                _this3.newItem = {
-                    'title': '',
-                    'description': '',
-                    'username': '',
-                    'email': ''
-                };
-                $("#create-item").modal('hide');
-                toastr.success('Post Created Successfully.', 'Success Alert', { timeOut: 5000 });
-            }, function (response) {
-                _this3.formErrors = response.data;
-            });
-        },
-        deleteItem: function deleteItem(item) {
-            var _this4 = this;
-
-            this.$http.delete('/vueitems/' + item.id).then(function (response) {
-                _this4.changePage(_this4.pagination.current_page);
-                toastr.success('Post Deleted Successfully.', 'Success Alert', { timeOut: 5000 });
-            });
-        },
-        editItem: function editItem(item) {
-            this.fillItem.title = item.title;
-            this.fillItem.id = item.id;
-            this.fillItem.description = item.description;
-            $("#edit-item").modal('show');
-        },
-        updateItem: function updateItem(id) {
-            var _this5 = this;
-
-            var input = this.fillItem;
-            this.$http.put('/vueitems/' + id, input).then(function (response) {
-                _this5.changePage(_this5.pagination.current_page);
-                _this5.newItem = {
-                    'title': '',
-                    'description': '',
-                    'username': '',
-                    'email': '',
-                    'id': ''
-                };
-                $("#edit-item").modal('hide');
-                toastr.success('Item Updated Successfully.', 'Success Alert', { timeOut: 5000 });
-            }, function (response) {
-                _this5.formErrors = response.data;
-            });
-        },
-        changePage: function changePage(page) {
-            this.pagination.current_page = page;
-            this.getVueItems(page);
-        }
-    }
-});
-
 },{"./core/bootstrap":95,"./spark":115}],92:[function(require,module,exports){
 'use strict';
 
@@ -31371,7 +31239,7 @@ Vue.component('spark-data-employee-screen', $.extend(true, {
      * Bootstrap the component. Load the initial data.
      */
     ready: function ready() {
-        this.getVueItems(this.pagination.current_page);
+        this.getConfig();
     },
 
     /*
@@ -31379,6 +31247,8 @@ Vue.component('spark-data-employee-screen', $.extend(true, {
      */
     data: function data() {
         return {
+            trans: [],
+            config: [],
             items: [],
             pagination: {
                 total: 0,
@@ -31391,27 +31261,7 @@ Vue.component('spark-data-employee-screen', $.extend(true, {
             offset: 2,
             formErrors: {},
             formErrorsUpdate: {},
-            columns: [{ 'name': 'id', 'displayName': 'id',
-                'formInputType': 'text',
-                'formInputPlaceholder': '',
-                'newItemModel': '',
-                'fillItemModel': ''
-            }, { 'name': 'nome', 'displayName': 'nome',
-                'formInputType': 'text',
-                'formInputPlaceholder': '',
-                'newItemModel': '',
-                'fillItemModel': ''
-            }, { 'name': 'data_nascimento', 'displayName': 'data_nascimento',
-                'formInputType': 'text',
-                'formInputPlaceholder': '',
-                'newItemModel': '',
-                'fillItemModel': ''
-            }, { 'name': 'observacao', 'displayName': 'observacao',
-                'formInputType': 'text',
-                'formInputPlaceholder': '',
-                'newItemModel': '',
-                'fillItemModel': ''
-            }]
+            columns: []
         };
     },
 
@@ -31429,13 +31279,70 @@ Vue.component('spark-data-employee-screen', $.extend(true, {
     },
 
     methods: {
-        getVueItems: function getVueItems(page) {
+        getTrans: function getTrans(field) {
             var _this = this;
 
-            this.$http.get('/erpnet-api/partner?page=' + page).then(function (response) {
-                if (response.data.hasOwnProperty('data')) _this.$set('items', response.data.data);
-                if (response.data.hasOwnProperty('pagination')) _this.$set('pagination', response.data.pagination);
+            if (field) {
+                if (this.trans.hasOwnProperty(field)) return this.trans[field];
+                return field;
+            } else this.$http.get('/erpnet-api/lang/' + this.config.defaultLocale + '/erpnetSaas').then(function (response) {
+                if (response.data.hasOwnProperty('data')) _this.$set('trans', response.data.data);
+            }, function (response) {
+                if (toastr) toastr.warning('Retrieving trans Failed.', 'Fail Alert');
             });
+        },
+        getConfig: function getConfig(field) {
+            var _this2 = this;
+
+            if (field) {
+                if (this.config.hasOwnProperty(field)) return this.config[field];else if (toastr) toastr.warning('Retrieving config Failed.', 'Fail Alert');
+            } else this.$http.get('/erpnet-api/config/erpnetSaas').then(function (response) {
+                if (response.data.hasOwnProperty('data')) _this2.$set('config', response.data.data);
+                _this2.columns = _this2.config.employeeColumns;
+                _this2.getTrans();
+                _this2.getVueItems(_this2.pagination.current_page);
+                // console.log(this.items);
+            }, function (response) {
+                if (toastr) toastr.warning('Retrieving data Failed.', 'Fail Alert');
+            });
+        },
+        getVueItems: function getVueItems(page) {
+            var _this3 = this;
+
+            var query = '';
+            if (page > 1) query = '?page=' + page;
+            this.$http.get(this.config.employeeApiUrl + query).then(function (response) {
+                if (response.data.hasOwnProperty('data')) _this3.$set('items', response.data.data);
+                if (response.data.hasOwnProperty('pagination')) _this3.$set('pagination', response.data.pagination);
+            }, function (response) {
+                if (toastr) toastr.warning('Retrieving data Failed.', 'Fail Alert');
+            });
+        },
+        createItem: function createItem() {
+            var _this4 = this;
+
+            var input = {};
+            this.columns.forEach(function (column) {
+                if (column.name != 'id') input[column.name] = column.fillItemModel;
+            });
+            input.mandante = this.getConfig('defaultMandante');
+            // console.log(input);
+            this.$http.post(this.getConfig('employeeApiUrl'), input).then(function (response) {
+                _this4.getVueItems(_this4.pagination.current_page);
+                _this4.changePage(_this4.pagination.current_page);
+                _this4.newItem = {};
+                $("#create-item").modal('hide');
+                if (toastr) toastr.success(response.data.message, 'Success Alert');
+            }, function (response) {
+                if (toastr) toastr.warning('Post data Failed.', 'Fail Alert');
+                _this4.formErrors = response.data;
+            });
+        },
+        newItem: function newItem(item) {
+            this.columns.forEach(function (column) {
+                column.fillItemModel = '';
+            });
+            $("#create-item").modal('show');
         },
         editItem: function editItem(item) {
             this.columns.forEach(function (column) {
@@ -31443,14 +31350,30 @@ Vue.component('spark-data-employee-screen', $.extend(true, {
             });
             $("#edit-item").modal('show');
         },
-        deleteItem: function deleteItem(item) {
-            var _this2 = this;
+        updateItem: function updateItem() {
+            var _this5 = this;
 
-            this.$http.delete('/erpnet-api/partner/' + item.id).then(function (response) {
-                _this2.changePage(_this2.pagination.current_page);
-                toastr.success('Post Deleted Successfully.', 'Success Alert');
+            var input = {};
+            this.columns.forEach(function (column) {
+                input[column.name] = column.fillItemModel;
+            });
+            this.$http.put(this.getConfig('employeeApiUrl') + '/' + input.id, input).then(function (response) {
+                _this5.changePage(_this5.pagination.current_page);
+                $("#edit-item").modal('hide');
+                if (toastr) toastr.success(response.data.message, 'Success Alert');
             }, function (response) {
-                toastr.warning('Post Deleted Failed.', 'Fail Alert');
+                if (toastr) toastr.warning('Put data Failed.', 'Fail Alert');
+                _this5.formErrors = response.data;
+            });
+        },
+        deleteItem: function deleteItem(item) {
+            var _this6 = this;
+
+            this.$http.delete(this.config.employeeApiUrl + '/' + item.id).then(function (response) {
+                _this6.changePage(_this6.pagination.current_page);
+                if (toastr) toastr.success(response.data.message, 'Success Alert');
+            }, function (response) {
+                if (toastr) toastr.warning('Delete data Failed.', 'Fail Alert');
             });
         },
         changePage: function changePage(page) {

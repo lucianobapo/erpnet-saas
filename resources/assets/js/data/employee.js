@@ -3,7 +3,7 @@ Vue.component('spark-data-employee-screen', $.extend(true, {
      * Bootstrap the component. Load the initial data.
      */
     ready: function () {
-        this.getVueItems(this.pagination.current_page);
+        this.getConfig();
     },
 
 
@@ -12,6 +12,8 @@ Vue.component('spark-data-employee-screen', $.extend(true, {
      */
     data: function () {
         return {
+            trans: [],
+            config: [],
             items: [],
             pagination: {
                 total: 0,
@@ -24,32 +26,7 @@ Vue.component('spark-data-employee-screen', $.extend(true, {
             offset: 2,
             formErrors:{},
             formErrorsUpdate:{},
-            columns : [
-                { 'name': 'id',  'displayName': 'id',
-                    'formInputType': 'text',
-                    'formInputPlaceholder': '',
-                    'newItemModel': '',
-                    'fillItemModel': ''
-                },
-                { 'name': 'nome', 'displayName': 'nome',
-                    'formInputType': 'text',
-                    'formInputPlaceholder': '',
-                    'newItemModel': '',
-                    'fillItemModel': ''
-                },
-                { 'name': 'data_nascimento', 'displayName': 'data_nascimento',
-                    'formInputType': 'text',
-                    'formInputPlaceholder': '',
-                    'newItemModel': '',
-                    'fillItemModel': ''
-                },
-                { 'name': 'observacao', 'displayName': 'observacao',
-                    'formInputType': 'text',
-                    'formInputPlaceholder': '',
-                    'newItemModel': '',
-                    'fillItemModel': ''
-                },
-            ]
+            columns : []
         };
     },
 
@@ -69,11 +46,85 @@ Vue.component('spark-data-employee-screen', $.extend(true, {
 
 
     methods: {
+        getTrans: function(field) {
+            if (field){
+                if (this.trans.hasOwnProperty(field)) return this.trans[field];
+                return field;
+            }
+            else
+                this.$http.get('/erpnet-api/lang/'+this.config.defaultLocale+'/erpnetSaas')
+                    .then(
+                        response => {
+                            if (response.data.hasOwnProperty('data'))
+                                this.$set('trans', response.data.data);
+                        },
+                        response => {
+                            if(toastr) toastr.warning('Retrieving trans Failed.', 'Fail Alert');
+                        }
+                    );
+        },
+        getConfig: function(field) {
+            if (field){
+                if (this.config.hasOwnProperty(field)) return this.config[field];
+                else if(toastr) toastr.warning('Retrieving config Failed.', 'Fail Alert');
+            }
+            else
+                this.$http.get('/erpnet-api/config/erpnetSaas')
+                    .then(
+                        response => {
+                            if (response.data.hasOwnProperty('data'))
+                                this.$set('config', response.data.data);
+                            this.columns = this.config.employeeColumns;
+                            this.getTrans();
+                            this.getVueItems(this.pagination.current_page);
+                            // console.log(this.items);
+                        },
+                        response => {
+                            if(toastr) toastr.warning('Retrieving data Failed.', 'Fail Alert');
+                        }
+                    );
+        },
         getVueItems: function(page) {
-            this.$http.get('/erpnet-api/partner?page='+page).then((response) => {
-                if (response.data.hasOwnProperty('data')) this.$set('items', response.data.data);
-                if (response.data.hasOwnProperty('pagination')) this.$set('pagination', response.data.pagination);
+            let query = '';
+            if (page>1) query = '?page='+page;
+            this.$http.get(this.config.employeeApiUrl+query)
+                .then(
+                    response => {
+                        if (response.data.hasOwnProperty('data')) this.$set('items', response.data.data);
+                        if (response.data.hasOwnProperty('pagination')) this.$set('pagination', response.data.pagination);
+                    },
+                    response => {
+                        if(toastr) toastr.warning('Retrieving data Failed.', 'Fail Alert');
+                    }
+                );
+        },
+        createItem: function() {
+            let input = {};
+            this.columns.forEach(column=>{
+                if (column.name!='id')
+                    input[column.name] =  column.fillItemModel;
             });
+            input.mandante = this.getConfig('defaultMandante');
+            // console.log(input);
+            this.$http.post(this.getConfig('employeeApiUrl'),input)
+                .then(
+                    response => {
+                        this.getVueItems(this.pagination.current_page);
+                        this.changePage(this.pagination.current_page);
+                        this.newItem = {};
+                        $("#create-item").modal('hide');
+                        if(toastr) toastr.success(response.data.message, 'Success Alert');
+                    },
+                    response => {
+                        if(toastr) toastr.warning('Post data Failed.', 'Fail Alert');
+                        this.formErrors = response.data;
+                    });
+        },
+        newItem: function(item) {
+            this.columns.forEach(column=>{
+                column.fillItemModel = '';
+            });
+            $("#create-item").modal('show');
         },
         editItem: function(item) {
             this.columns.forEach(column=>{
@@ -81,15 +132,32 @@ Vue.component('spark-data-employee-screen', $.extend(true, {
             });
             $("#edit-item").modal('show');
         },
-        deleteItem: function(item) {
-            this.$http.delete('/erpnet-api/partner/'+item.id)
+        updateItem: function() {
+            let input = {};
+            this.columns.forEach(column=>{
+                input[column.name] =  column.fillItemModel;
+            });
+            this.$http.put(this.getConfig('employeeApiUrl')+'/'+input.id,input)
                 .then(
                     response => {
                         this.changePage(this.pagination.current_page);
-                        toastr.success('Post Deleted Successfully.', 'Success Alert');
+                        $("#edit-item").modal('hide');
+                        if(toastr) toastr.success(response.data.message, 'Success Alert');
                     },
                     response => {
-                        toastr.warning('Post Deleted Failed.', 'Fail Alert');
+                        if(toastr) toastr.warning('Put data Failed.', 'Fail Alert');
+                        this.formErrors = response.data;
+                    });
+        },
+        deleteItem: function(item) {
+            this.$http.delete(this.config.employeeApiUrl+'/'+item.id)
+                .then(
+                    response => {
+                        this.changePage(this.pagination.current_page);
+                        if(toastr) toastr.success(response.data.message, 'Success Alert');
+                    },
+                    response => {
+                        if(toastr) toastr.warning('Delete data Failed.', 'Fail Alert');
                     }
                 );
         },
