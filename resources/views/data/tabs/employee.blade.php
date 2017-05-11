@@ -28,7 +28,7 @@
                             <div class="col-xs-12 col-sm-8 col-md-6">
                                 <ul>
                                     <li v-for="column in columns">
-                                        @{{ column.displayName }}: @{{ item[column.name] }}
+                                        @{{ getTrans(column.displayName) }}: @{{ item[column.name] }}
                                     </li>
                                 </ul>
                             </div>

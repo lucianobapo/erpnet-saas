@@ -12,28 +12,29 @@ return [
         \ErpNET\Saas\v1\Contracts\Repositories\TeamRepository::class=>\ErpNET\Saas\v1\Repositories\TeamRepository::class,
     ],
 
+    'defaultLocale' => env('APP_LOCALE', 'pt_BR'),
     'defaultMandante' => 'westgroup',
     'employeeApiUrl' => '/erpnet-api/partner',
     'employeeColumns' => [
-        [ 'name' => 'id',  'displayName' => 'Código',
+        [ 'name' => 'id',  'displayName' => 'Id',
             'formInputType' => 'text',
             'formInputPlaceholder' => '',
             'newItemModel' => '',
             'fillItemModel' => ''
         ],
-        [ 'name' => 'nome', 'displayName' => 'Nome',
+        [ 'name' => 'nome', 'displayName' => 'Name',
             'formInputType' => 'text',
             'formInputPlaceholder' => '',
             'newItemModel' => '',
             'fillItemModel' => ''
         ],
-        [ 'name' => 'data_nascimento', 'displayName' => 'Data Nascimento',
+        [ 'name' => 'data_nascimento', 'displayName' => 'Birth date',
             'formInputType' => 'text',
             'formInputPlaceholder' => '',
             'newItemModel' => '',
             'fillItemModel' => ''
         ],
-        [ 'name' => 'observacao', 'displayName' => 'Observação',
+        [ 'name' => 'observacao', 'displayName' => 'Note',
             'formInputType' => 'text',
             'formInputPlaceholder' => '',
             'newItemModel' => '',

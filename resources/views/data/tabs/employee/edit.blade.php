@@ -11,7 +11,7 @@
             <div class="modal-body">
                 <form method="post" enctype="multipart/form-data" v-on:submit.prevent="updateItem(fillItem.id)">
                     <div class="form-group" v-for="column in columns">
-                        <label for="@{{ column.name }}">@{{ column.displayName }}</label>
+                        <label for="@{{ column.name }}">@{{ getTrans(column.displayName) }}</label>
                         <input name="@{{ column.name }}" class="form-control"
                                type="@{{ column.formInputType }}" placeholder="@{{ column.formInputPlaceholder }}"
                                v-model="column.fillItemModel" />
