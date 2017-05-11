@@ -39,6 +39,7 @@ class ErpnetSaasServiceProvider extends ServiceProvider
         config([
             'app.locale'=>env('APP_LOCALE','pt_BR'),
             'app.timezone'=>env('APP_TIMEZONE','America/Sao_Paulo'),
+            'repository.cache.enabled'=>env('REPOSITORY_CACHE',false),
         ]);
 
         $app = $this->app;
