@@ -6,8 +6,7 @@
                 <div class="row">
                     <div class="col-xs-12 well well-sm">
                         <div class="pull-right">
-                            <button type="button" data-toggle="modal" data-target="#create-item"
-                                    class="btn btn-primary">
+                            <button  class="btn btn-primary" @click.prevent="newItem">
                                 <span class="glyphicon glyphicon-file"></span> {{ t('New') }}
                             </button>
                         </div>

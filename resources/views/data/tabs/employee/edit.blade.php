@@ -9,7 +9,7 @@
                 <h4 class="modal-title" id="myModalLabel">{{ t('Edit Data') }}</h4>
             </div>
             <div class="modal-body">
-                <form method="post" enctype="multipart/form-data" v-on:submit.prevent="updateItem(fillItem.id)">
+                <form method="post" enctype="multipart/form-data" v-on:submit.prevent="updateItem">
                     <div class="form-group" v-for="column in columns">
                         <label for="@{{ column.name }}">@{{ getTrans(column.displayName) }}</label>
                         <input name="@{{ column.name }}" class="form-control"

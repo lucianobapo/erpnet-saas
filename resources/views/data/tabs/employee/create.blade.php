@@ -15,7 +15,7 @@
                         <label for="@{{ column.name }}">@{{ getTrans(column.displayName) }}</label>
                         <input name="@{{ column.name }}" class="form-control"
                                type="@{{ column.formInputType }}" placeholder="@{{ column.formInputPlaceholder }}"
-                               v-model="newItem[column.name]" />
+                               v-model="column.fillItemModel" />
                         <span v-if="formErrors[column.name]" class="error text-danger">@{{ formErrors[column.name] }}</span>
                     </div>
                     <div class="form-group">
