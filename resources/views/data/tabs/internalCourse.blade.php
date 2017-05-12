@@ -1,46 +1,57 @@
-<div id="spark-settings-profile-screen">
-    <!-- Profile Basics -->
-    <spark-settings-profile-basics-screen inline-template>
-        <div id="spark-settings-profile-basics-screen" class="panel panel-default">
-            <div class="panel-heading">{{ t('Internal Course') }}</div>
-
-            <div class="panel-body">
-                <spark-error-alert :form="forms.updateProfileBasics"></spark-error-alert>
-
-                <div class="alert alert-success" v-if="forms.updateProfileBasics.successful">
-                    <i class="fa fa-btn fa-check-circle"></i>Great! Your profile was successfully updated.
-                </div>
-
-                <form class="form-horizontal" role="form">
-                    <spark-text :display="'Name'"
-                                :form="forms.updateProfileBasics"
-                                :name="'name'"
-                                :input.sync="forms.updateProfileBasics.name">
-                    </spark-text>
-
-                    <spark-email :display="'E-Mail Address'"
-                                 :form="forms.updateProfileBasics"
-                                 :name="'email'"
-                                 :input.sync="forms.updateProfileBasics.email">
-                    </spark-email>
-
-                    <div class="form-group">
-                        <div class="col-md-6 col-md-offset-4">
-                            <button type="submit" class="btn btn-primary"
-                                    @click.prevent="updateProfileBasics" :disabled="forms.updateProfileBasics.busy">
-                            <span v-if="forms.updateProfileBasics.busy">
-                                <i class="fa fa-btn fa-spinner fa-spin"></i> Updating
-                            </span>
-
-                                <span v-else>
-                                <i class="fa fa-btn fa-save"></i> Update
-                            </span>
+<div id="spark-data-internal-course">
+    <spark-data-internal-course-screen inline-template>
+        <div id="spark-data-internal-course-screen" class="panel panel-default">
+            <div class="panel-heading">{{ t('Employee') }}</div>
+            <div class="panel-body" id="employeeData">
+                <div class="row">
+                    <div class="col-xs-12 well well-sm">
+                        <div class="pull-right">
+                            <button  class="btn btn-primary" @click.prevent="newItem">
+                                <span class="glyphicon glyphicon-file"></span> {{ t('New') }}
                             </button>
                         </div>
                     </div>
-                </form>
+                </div>
+
+                <div class="row" v-if="pagination.total==0">
+                    <div class="col-xs-12 well well-sm text-center">
+                        <em>{{ t('No records found') }}</em>
+                    </div>
+                </div>
+
+                @include('erpnetSaas::data.tabs.parts.nav')
+
+                <div class="row" v-if="pagination.total>0">
+                    <div v-for="item in items" class="col-xs-12 well well-sm">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-8 col-md-6">
+                                <ul>
+                                    <li v-for="column in columns">
+                                        @{{ getTrans(column.displayName) }}: @{{ item[column.name] }}
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-4 col-md-6">
+                                <div class="pull-right">
+                                    <button  class="edit-modal btn btn-warning" @click.prevent="editItem(item)">
+                                        <span class="glyphicon glyphicon-edit"></span> {{ t('Edit') }}
+                                    </button>
+                                    <button  class="edit-modal btn btn-danger" @click.prevent="deleteItem(item)">
+                                        <span class="glyphicon glyphicon-trash"></span> {{ t('Remove') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @include('erpnetSaas::data.tabs.parts.nav')
+                @include('erpnetSaas::data.tabs.parts.create')
+                @include('erpnetSaas::data.tabs.parts.edit')
             </div>
+
         </div>
-    </spark-settings-profile-basics-screen>
+    </spark-data-internal-course-screen>
 
 </div>
