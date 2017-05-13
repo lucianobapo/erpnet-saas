@@ -13,7 +13,7 @@
                     </div>
                 </div>
 
-                <div class="row" v-if="pagination.total==0">
+                <div class="row" v-if="computedItems.length==0">
                     <div class="col-xs-12 well well-sm text-center">
                         <em>{{ t('No records found') }}</em>
                     </div>
@@ -21,8 +21,8 @@
 
                 @include('erpnetSaas::data.tabs.parts.nav')
 
-                <div class="row" v-if="pagination.total>0">
-                    <div v-for="item in items" class="col-xs-12 well well-sm">
+                <div class="row" v-if="computedItems.length>0">
+                    <div v-for="item in computedItems" class="col-xs-12 well well-sm">
                         <div class="row">
                             <div class="col-xs-12 col-sm-8 col-md-6">
                                 <ul>
