@@ -26,7 +26,7 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-8 col-md-6">
                                 <ul>
-                                    <li v-for="column in columns">
+                                    <li v-for="column in computedConfig.internalCourse.columns">
                                         @{{ getTrans(column.displayName) }}: @{{ item[column.name] }}
                                     </li>
                                 </ul>
