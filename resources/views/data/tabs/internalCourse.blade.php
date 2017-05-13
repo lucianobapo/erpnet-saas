@@ -1,8 +1,8 @@
 <div id="spark-data-internal-course">
     <spark-data-internal-course-screen inline-template>
         <div id="spark-data-internal-course-screen" class="panel panel-default">
-            <div class="panel-heading">{{ t('Employee') }}</div>
-            <div class="panel-body" id="employeeData">
+            <div class="panel-heading">{{ t('Internal Course') }}</div>
+            <div class="panel-body">
                 <div class="row">
                     <div class="col-xs-12 well well-sm">
                         <div class="pull-right">
@@ -47,8 +47,7 @@
                 </div>
 
                 @include('erpnetSaas::data.tabs.parts.nav')
-                @include('erpnetSaas::data.tabs.parts.create')
-                @include('erpnetSaas::data.tabs.parts.edit')
+
             </div>
 
         </div>

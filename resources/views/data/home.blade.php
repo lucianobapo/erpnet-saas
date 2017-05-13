@@ -41,5 +41,8 @@
                 </div>
             </div>
         </div>
+
+        @include('erpnetSaas::data.tabs.parts.create')
+        @include('erpnetSaas::data.tabs.parts.edit')
     </spark-data-screen>
 @endsection

@@ -47,8 +47,8 @@
                 </div>
 
                 @include('erpnetSaas::data.tabs.employee.nav')
-                @include('erpnetSaas::data.tabs.employee.create')
-                @include('erpnetSaas::data.tabs.employee.edit')
+                {{--@include('erpnetSaas::data.tabs.employee.create')--}}
+                {{--@include('erpnetSaas::data.tabs.employee.edit')--}}
             </div>
 
         </div>
