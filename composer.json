@@ -19,7 +19,7 @@
     "ext-mbstring": "*",
     "ext-xml": "*",
     "ext-zip": "*",
-    "dingo/api": "^1.1",
+    "dingo/api": "dev-master",
     "laravel/cashier": "^7.0",
     "ilhanet/erpnet-models": "dev-master",
     "erusev/parsedown": "^1.6",

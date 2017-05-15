@@ -30,4 +30,5 @@ return array (
   'Edit Data' => 'Editar Registro',
   'Save' => 'Gravar',
   'No records found' => 'Nenhum registro encontrado',
+  'Toggle Navigation' => 'Navegação alternativa',
 );
