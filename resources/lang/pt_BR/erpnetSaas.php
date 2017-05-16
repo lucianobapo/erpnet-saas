@@ -29,6 +29,12 @@ return array (
   'Create New Data' => 'Criar novo Registro',
   'Edit Data' => 'Editar Registro',
   'Save' => 'Gravar',
+  'Vendor' => 'Empresa',
+    'Expiration' => 'Validade',
+    'Duration' => 'Carga Horária',
+    'Price' => 'Preço',
+    'Attach' => 'Anexo',
+    'Hologram' => 'Holograma',
   'No records found' => 'Nenhum registro encontrado',
   'Toggle Navigation' => 'Navegação alternativa',
 );
