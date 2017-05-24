@@ -14,7 +14,7 @@
           type='text/css'>
 
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
 
     <!-- Spark Globals -->
     @include('erpnetSaas::scripts.globals')
@@ -64,7 +64,7 @@
     {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.2/vue.js"></script>--}}
 
     <!-- JavaScript Application -->
-    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ elixir('js/app.js') }}"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </div>
